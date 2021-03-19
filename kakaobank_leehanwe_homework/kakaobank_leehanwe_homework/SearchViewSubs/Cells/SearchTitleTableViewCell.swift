@@ -1,5 +1,5 @@
 //
-//  SearchTItleTableViewCell.swift
+//  SearchTitleTableViewCell.swift
 //  kakaobank_leehanwe_homework
 //
 //  Created by hanwe on 2021/03/19.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchTItleTableViewCell: UITableViewCell {
+class SearchTitleTableViewCell: UITableViewCell {
     
     //MARK: IBOutlet
     @IBOutlet weak var titleLabel: UILabel!

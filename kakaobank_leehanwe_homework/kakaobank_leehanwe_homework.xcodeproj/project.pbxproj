@@ -16,8 +16,8 @@
 		78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C2A2604A012006A0B11 /* SearchViewController.swift */; };
 		78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */; };
 		78B58C4F2604A274006A0B11 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C4E2604A274006A0B11 /* MVVMProtocol.swift */; };
-		78B58C602604AABC006A0B11 /* SearchTItleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C5E2604AABC006A0B11 /* SearchTItleTableViewCell.swift */; };
-		78B58C612604AABC006A0B11 /* SearchTItleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C5F2604AABC006A0B11 /* SearchTItleTableViewCell.xib */; };
+		78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */; };
+		78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */; };
 		78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */; };
 		78B58C672604AADA006A0B11 /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C652604AADA006A0B11 /* SearchHistoryTableViewCell.xib */; };
 		78B58C6C2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C6A2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift */; };
@@ -59,8 +59,8 @@
 		78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kakaobank_leehanwe_homeworkTests.swift; sourceTree = "<group>"; };
 		78B58C3C2604A0F0006A0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78B58C4E2604A274006A0B11 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
-		78B58C5E2604AABC006A0B11 /* SearchTItleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTItleTableViewCell.swift; sourceTree = "<group>"; };
-		78B58C5F2604AABC006A0B11 /* SearchTItleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTItleTableViewCell.xib; sourceTree = "<group>"; };
+		78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleTableViewCell.swift; sourceTree = "<group>"; };
+		78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTitleTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		78B58C652604AADA006A0B11 /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C6A2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 		78B58C792604ABD8006A0B11 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				78B58C5E2604AABC006A0B11 /* SearchTItleTableViewCell.swift */,
-				78B58C5F2604AABC006A0B11 /* SearchTItleTableViewCell.xib */,
+				78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */,
+				78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */,
 				78B58C702604AB44006A0B11 /* SearchBarTableHeaderView.swift */,
 				78B58C742604AB50006A0B11 /* SearchBarTableHeaderView.xib */,
 				78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */,
@@ -370,7 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78B58C612604AABC006A0B11 /* SearchTItleTableViewCell.xib in Resources */,
+				78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */,
 				78B58C1826049A5C006A0B11 /* LaunchScreen.storyboard in Resources */,
 				78B58C1526049A5C006A0B11 /* Assets.xcassets in Resources */,
 				78B58C752604AB50006A0B11 /* SearchBarTableHeaderView.xib in Resources */,
@@ -477,7 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78B58C602604AABC006A0B11 /* SearchTItleTableViewCell.swift in Sources */,
+				78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */,
 				78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */,
 				78B58C4F2604A274006A0B11 /* MVVMProtocol.swift in Sources */,
 				78B58D1A2604C015006A0B11 /* CommonDefine.swift in Sources */,
