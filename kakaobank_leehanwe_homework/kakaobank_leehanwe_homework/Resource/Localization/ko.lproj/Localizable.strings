@@ -1,0 +1,21 @@
+//
+//  CommonDefine.swift
+//  kakaobank_leehanwe_homework
+//
+//  Created by hanwe on 2021/03/19.
+//
+
+//MARK: -common
+
+"next" = "다음";
+"confirm" = "확인";
+"cancel" = "취소";
+"delete" = "삭제";
+"close" = "닫기";
+"yes" = "네";
+"no" = "아니요";
+
+
+//MARK: SearchViewController
+
+"title_search_view_controller" = "검색";

@@ -25,6 +25,11 @@
 		78B58C6D2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C6B2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib */; };
 		78B58C712604AB44006A0B11 /* SearchBarTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C702604AB44006A0B11 /* SearchBarTableHeaderView.swift */; };
 		78B58C752604AB50006A0B11 /* SearchBarTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C742604AB50006A0B11 /* SearchBarTableHeaderView.xib */; };
+		78B58D1A2604C015006A0B11 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58D192604C015006A0B11 /* CommonDefine.swift */; };
+		78B58D252604C0DA006A0B11 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78B58D1E2604C0DA006A0B11 /* Localizable.strings */; };
+		78B58D262604C0DA006A0B11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78B58D202604C0DA006A0B11 /* InfoPlist.strings */; };
+		78B58D272604C0DA006A0B11 /* LocalizedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58D242604C0DA006A0B11 /* LocalizedMap.swift */; };
+		78B58D2C2604C20D006A0B11 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58D2B2604C20D006A0B11 /* StringExtension.swift */; };
 		841D3D3487E09D6E2CB263A1 /* Pods_kakaobank_leehanwe_homeworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65947E89289FE71B1F4784A /* Pods_kakaobank_leehanwe_homeworkTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +67,13 @@
 		78B58C6B2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C702604AB44006A0B11 /* SearchBarTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableHeaderView.swift; sourceTree = "<group>"; };
 		78B58C742604AB50006A0B11 /* SearchBarTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarTableHeaderView.xib; sourceTree = "<group>"; };
+		78B58D192604C015006A0B11 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
+		78B58D1F2604C0DA006A0B11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78B58D212604C0DA006A0B11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78B58D222604C0DA006A0B11 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78B58D232604C0DA006A0B11 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78B58D242604C0DA006A0B11 /* LocalizedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedMap.swift; sourceTree = "<group>"; };
+		78B58D2B2604C20D006A0B11 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9479F30A6ECD153AABFE95AA /* Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0F524D9C04C6565B8BC83A3 /* Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C674223D675D0D29B7F3BCFB /* Pods-kakaobank_leehanwe_homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homework.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homework/Pods-kakaobank_leehanwe_homework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +123,7 @@
 		78B58C0A26049A5B006A0B11 /* kakaobank_leehanwe_homework */ = {
 			isa = PBXGroup;
 			children = (
+				78B58D2A2604C1F8006A0B11 /* Extension */,
 				78B58C5A2604A82C006A0B11 /* Resource */,
 				78B58C302604A0D3006A0B11 /* Data */,
 				78B58C332604A0D3006A0B11 /* Define */,
@@ -178,6 +191,7 @@
 		78B58C332604A0D3006A0B11 /* Define */ = {
 			isa = PBXGroup;
 			children = (
+				78B58D192604C015006A0B11 /* CommonDefine.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 		78B58C5A2604A82C006A0B11 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				78B58D1D2604C0DA006A0B11 /* Localization */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -227,6 +242,24 @@
 				78B58C6B2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		78B58D1D2604C0DA006A0B11 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				78B58D1E2604C0DA006A0B11 /* Localizable.strings */,
+				78B58D202604C0DA006A0B11 /* InfoPlist.strings */,
+				78B58D242604C0DA006A0B11 /* LocalizedMap.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		78B58D2A2604C1F8006A0B11 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78B58D2B2604C20D006A0B11 /* StringExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		AF13BFBD9322DCDBE49AB8EE /* Frameworks */ = {
@@ -316,6 +349,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 78B58BFF26049A5B006A0B11;
 			productRefGroup = 78B58C0926049A5B006A0B11 /* Products */;
@@ -338,7 +372,9 @@
 				78B58C1526049A5C006A0B11 /* Assets.xcassets in Resources */,
 				78B58C752604AB50006A0B11 /* SearchBarTableHeaderView.xib in Resources */,
 				78B58C6D2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib in Resources */,
+				78B58D252604C0DA006A0B11 /* Localizable.strings in Resources */,
 				78B58C672604AADA006A0B11 /* SearchHistoryTableViewCell.xib in Resources */,
+				78B58D262604C0DA006A0B11 /* InfoPlist.strings in Resources */,
 				78B58C1326049A5B006A0B11 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,9 +477,12 @@
 				78B58C602604AABC006A0B11 /* SearchTItleTableViewCell.swift in Sources */,
 				78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */,
 				78B58C4F2604A274006A0B11 /* MVVMProtocol.swift in Sources */,
+				78B58D1A2604C015006A0B11 /* CommonDefine.swift in Sources */,
 				78B58C6C2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift in Sources */,
+				78B58D272604C0DA006A0B11 /* LocalizedMap.swift in Sources */,
 				78B58C532604A2C0006A0B11 /* SearchViewModel.swift in Sources */,
 				78B58C0C26049A5B006A0B11 /* AppDelegate.swift in Sources */,
+				78B58D2C2604C20D006A0B11 /* StringExtension.swift in Sources */,
 				78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */,
 				78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */,
 				78B58C712604AB44006A0B11 /* SearchBarTableHeaderView.swift in Sources */,
@@ -483,6 +522,24 @@
 				78B58C1726049A5C006A0B11 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		78B58D1E2604C0DA006A0B11 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78B58D1F2604C0DA006A0B11 /* en */,
+				78B58D222604C0DA006A0B11 /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		78B58D202604C0DA006A0B11 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78B58D212604C0DA006A0B11 /* en */,
+				78B58D232604C0DA006A0B11 /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
