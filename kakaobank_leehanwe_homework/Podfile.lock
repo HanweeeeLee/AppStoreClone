@@ -1,0 +1,52 @@
+PODS:
+  - FlexibleModelProtocol (1.1.5)
+  - HWNavigationView (1.0.3)
+  - Realm (10.1.4):
+    - Realm/Headers (= 10.1.4)
+  - Realm/Headers (10.1.4)
+  - RealmSwift (10.1.4):
+    - Realm (= 10.1.4)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - FlexibleModelProtocol (~> 1.1)
+  - HWNavigationView (~> 1.0)
+  - RealmSwift (= 10.1.4)
+  - RxCocoa (= 6.1.0)
+  - RxSwift (= 6.1.0)
+  - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - FlexibleModelProtocol
+    - HWNavigationView
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  FlexibleModelProtocol: 8af8ab4aca678b9f2a81ce80afe72810f301e785
+  HWNavigationView: 2555c6f3abd37e96adaf404c97a3801a615b3972
+  Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
+  RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 4db4c083ac6434f81725097d8d4989a0d1a05bdc
+
+COCOAPODS: 1.10.1
