@@ -16,6 +16,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-LP-Iae">
                     <rect key="frame" x="0.0" y="0.0" width="411" height="73"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-gk-29S">
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="73"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UXG-Ia-p5a">
                             <rect key="frame" x="10" y="9" width="340" height="56"/>
                             <textInputTraits key="textInputTraits"/>
@@ -24,14 +28,28 @@
                             <rect key="frame" x="355" y="21.5" width="46" height="30"/>
                             <state key="normal" title="Button"/>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3r-E9-jBW">
+                            <rect key="frame" x="0.0" y="72" width="411" height="1"/>
+                            <color key="backgroundColor" systemColor="systemGrayColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="8ec-KA-kbl"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="o6y-gk-29S" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" id="0iM-Uq-rOp"/>
+                        <constraint firstAttribute="trailing" secondItem="V3r-E9-jBW" secondAttribute="trailing" id="59J-g1-U8k"/>
                         <constraint firstAttribute="trailing" secondItem="yHI-cF-8PX" secondAttribute="trailing" constant="10" id="Gj4-mT-noz"/>
+                        <constraint firstAttribute="trailing" secondItem="o6y-gk-29S" secondAttribute="trailing" id="KXi-B8-5eP"/>
                         <constraint firstItem="UXG-Ia-p5a" firstAttribute="centerY" secondItem="l8Y-LP-Iae" secondAttribute="centerY" id="SbB-rm-b4X"/>
                         <constraint firstItem="yHI-cF-8PX" firstAttribute="centerY" secondItem="UXG-Ia-p5a" secondAttribute="centerY" id="UjV-sn-LR7"/>
+                        <constraint firstAttribute="bottom" secondItem="o6y-gk-29S" secondAttribute="bottom" id="dJk-xe-28F"/>
+                        <constraint firstItem="V3r-E9-jBW" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" id="geY-fE-TQI"/>
                         <constraint firstItem="UXG-Ia-p5a" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" constant="10" id="hQV-jU-gaO"/>
+                        <constraint firstItem="o6y-gk-29S" firstAttribute="top" secondItem="l8Y-LP-Iae" secondAttribute="top" id="lIi-SX-mba"/>
                         <constraint firstItem="yHI-cF-8PX" firstAttribute="leading" secondItem="UXG-Ia-p5a" secondAttribute="trailing" constant="5" id="mV4-Vu-66y"/>
+                        <constraint firstAttribute="bottom" secondItem="V3r-E9-jBW" secondAttribute="bottom" id="rsQ-27-2w1"/>
                     </constraints>
                 </view>
             </subviews>
@@ -45,6 +63,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cancelBtn" destination="yHI-cF-8PX" id="9Hf-Uu-ZoP"/>
+                <outlet property="colorView" destination="o6y-gk-29S" id="J87-6o-Pdc"/>
+                <outlet property="containerView" destination="l8Y-LP-Iae" id="gyl-ah-E6c"/>
+                <outlet property="lineView" destination="V3r-E9-jBW" id="iDF-Qg-1Cz"/>
                 <outlet property="searchBar" destination="UXG-Ia-p5a" id="7Uk-oQ-bin"/>
             </connections>
             <point key="canvasLocation" x="116.66666666666667" y="90.066964285714278"/>
@@ -53,6 +74,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -41,8 +41,15 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    var titleSectionEffectPercent: CGFloat = 0 {
+        didSet {
+            self.searchBarHeaderView?.setColorEffect(percent: self.titleSectionEffectPercent)
+        }
+    }
     
     //MARK: property
+    
+    weak var searchBarHeaderView: SearchBarTableHeaderView? = nil
     
     let presenter: SearchPresenter = SearchPresenter()
     let titleSectionHeight: CGFloat = 60
@@ -98,6 +105,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchBarTableHeaderView") as! SearchBarTableHeaderView
+            self.searchBarHeaderView = headerView
             return headerView
         }
         else {
@@ -147,9 +155,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         case .history:
             if scrollView.contentOffset.y >= self.titleSectionHeight {
                 self.isShowingNavigationTitle = true
+                self.titleSectionEffectPercent = 1
             }
             else {
                 self.isShowingNavigationTitle = false
+                self.titleSectionEffectPercent = scrollView.contentOffset.y/titleSectionHeight
             }
             break
         case .autoComplete:
