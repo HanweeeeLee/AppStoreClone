@@ -143,13 +143,39 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.currentState == .history {
-            if scrollView.contentOffset.y > self.titleSectionHeight {
+        switch self.currentState {
+        case .history:
+            if scrollView.contentOffset.y >= self.titleSectionHeight {
                 self.isShowingNavigationTitle = true
             }
             else {
                 self.isShowingNavigationTitle = false
             }
+            break
+        case .autoComplete:
+            break
+        case .searched:
+            break
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        switch self.currentState {
+        case .history:
+            if scrollView.contentOffset.y > self.titleSectionHeight {
+                self.isShowingNavigationTitle = true
+            }
+            else if self.titleSectionHeight > scrollView.contentOffset.y && scrollView.contentOffset.y > self.titleSectionHeight/2 {
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
+            }
+            else {
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+            break
+        case .autoComplete:
+            break
+        case .searched:
+            break
         }
     }
     
