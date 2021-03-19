@@ -7,6 +7,7 @@ def common_pods
   pod 'SwiftyJSON', '~> 4.0'
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
+  pod 'RxDataSources'
   pod 'FlexibleModelProtocol', '~> 1.1'
   pod 'HWNavigationView', '~> 1.0'
   pod 'RealmSwift', '=10.1.4'

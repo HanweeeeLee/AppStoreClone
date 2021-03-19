@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import HWNavigationView
+import RxDataSources
 
 class SearchViewController: UIViewController, MVVMViewController {
     
@@ -16,45 +16,7 @@ class SearchViewController: UIViewController, MVVMViewController {
     typealias SelfType = SearchViewController
     
     //MARK: IBOutlet
-    @IBOutlet weak var topContainerView: UIView!
-    @IBOutlet weak var topContainerViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchBarHeightConstranit: NSLayoutConstraint!
-    @IBOutlet weak var subViewContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    //MARK: fold
-    var foldPercent: CGFloat = 1.0 { //1이면 다 펴져있음
-        didSet {
-            print("foldPercent:\(self.foldPercent)")
-            let offset: CGFloat = self.foldPercent * (self.maxTitleHeight - self.minTitleHeight)
-            self.topContainerViewHeightConstraint.constant = self.minTitleHeight + offset
-        }
-    }
-    var minTitleHeight: CGFloat = 0
-    var maxTitleHeight: CGFloat = 0
-    
-    func animationFold(isFold: Bool, duration: TimeInterval) {
-        if isFold {
-            self.topContainerViewHeightConstraint.constant = self.minTitleHeight
-        }
-        else {
-            self.topContainerViewHeightConstraint.constant = self.maxTitleHeight
-        }
-        
-        UIView.animate(withDuration: duration, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: {[weak self] _ in
-            if isFold {
-                self?.foldPercent = 0
-            }
-            else {
-                self?.foldPercent = 1
-            }
-        })
-    }
     
     //MARK: property
     
@@ -83,10 +45,6 @@ class SearchViewController: UIViewController, MVVMViewController {
     }
     
     func initUI() {
-        self.minTitleHeight = self.searchBarHeightConstranit.constant
-        self.maxTitleHeight = self.topContainerViewHeightConstraint.constant
-        self.titleLabel.font = UIFont(name: CommonDefine.FontBoldKey, size: CommonDefine.FontTitleSize)
-        self.titleLabel.text = LocalizedMap.TITLE_SEARCH_VIEW_CONTROLLER.localized
     }
     
     func bind(viewModel: MVVMViewModel) {
@@ -108,26 +66,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.minTitleHeight > scrollView.contentOffset.y {
-            let maxOffset = self.maxTitleHeight - self.minTitleHeight
-            let yOffset = scrollView.contentOffset.y
-            self.foldPercent = 1 - yOffset/maxOffset
-        }
-        else {
-            self.animationFold(isFold: true, duration: 0.1)
-        }
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if self.foldPercent > 0.5 {
-            self.animationFold(isFold: false, duration: 0.2)
-        }
-        else {
-            self.animationFold(isFold: true, duration: 0.2)
-        }
     }
     
     
