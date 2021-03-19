@@ -47,6 +47,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TFw-3g-6n9"/>
+                    <connections>
+                        <outlet property="tableView" destination="cEA-3d-lab" id="eQW-kb-dHL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8r-yN-ah5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

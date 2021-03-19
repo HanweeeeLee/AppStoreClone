@@ -9,12 +9,26 @@ import UIKit
 
 class SearchBarTableHeaderView: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    //MARK: IBOutlet
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var cancelBtn: UIButton!
+    
+    //MARK: property
+    
+    //MARK: lifeCycle
+    
+    override func awakeFromNib() {
+        initUI()
     }
-    */
+    
+    //MARK: function
+    
+    func initUI() {
+        self.searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: UIBarMetrics.default)
+    }
+    
+    //MARK: action
+    @IBAction func cancelAction(_ sender: Any) {
+    }
 
 }

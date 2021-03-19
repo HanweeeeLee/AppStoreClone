@@ -10,11 +10,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="SearchBarTableHeaderView" id="iN0-l3-epB" customClass="SearchBarTableHeaderView" customModule="kakaobank_leehanwe_homework" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="411" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-LP-Iae">
+                    <rect key="frame" x="0.0" y="0.0" width="411" height="73"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UXG-Ia-p5a">
+                            <rect key="frame" x="10" y="9" width="340" height="56"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHI-cF-8PX">
+                            <rect key="frame" x="355" y="21.5" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="yHI-cF-8PX" secondAttribute="trailing" constant="10" id="Gj4-mT-noz"/>
+                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="centerY" secondItem="l8Y-LP-Iae" secondAttribute="centerY" id="SbB-rm-b4X"/>
+                        <constraint firstItem="yHI-cF-8PX" firstAttribute="centerY" secondItem="UXG-Ia-p5a" secondAttribute="centerY" id="UjV-sn-LR7"/>
+                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" constant="10" id="hQV-jU-gaO"/>
+                        <constraint firstItem="yHI-cF-8PX" firstAttribute="leading" secondItem="UXG-Ia-p5a" secondAttribute="trailing" constant="5" id="mV4-Vu-66y"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="l8Y-LP-Iae" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="57j-bg-U6V"/>
+                <constraint firstAttribute="bottom" secondItem="l8Y-LP-Iae" secondAttribute="bottom" id="Oqh-8T-UrH"/>
+                <constraint firstAttribute="trailing" secondItem="l8Y-LP-Iae" secondAttribute="trailing" id="X8H-HL-uko"/>
+                <constraint firstItem="l8Y-LP-Iae" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rGn-uA-Fht"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="118.84057971014494" y="99.107142857142847"/>
+            <connections>
+                <outlet property="cancelBtn" destination="yHI-cF-8PX" id="9Hf-Uu-ZoP"/>
+                <outlet property="searchBar" destination="UXG-Ia-p5a" id="7Uk-oQ-bin"/>
+            </connections>
+            <point key="canvasLocation" x="116.66666666666667" y="90.066964285714278"/>
         </view>
     </objects>
     <resources>

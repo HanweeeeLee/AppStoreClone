@@ -8,16 +8,30 @@
 import UIKit
 
 class SearchTItleTableViewCell: UITableViewCell {
-
+    
+    //MARK: IBOutlet
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    //MARK: property
+    
+    //MARK: lifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        initUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK: function
+    
+    func initUI() {
+        self.titleLabel.font = UIFont(name: CommonDefine.FontBoldKey, size: CommonDefine.FontTitleSize)
+        self.titleLabel.text = LocalizedMap.TITLE_SEARCH_VIEW_CONTROLLER.localized
     }
+    
+    //MARK: action
+    @IBAction func profileAction(_ sender: Any) {
+        print("프로필도 띄워줘야하나?")
+    }
+    
     
 }

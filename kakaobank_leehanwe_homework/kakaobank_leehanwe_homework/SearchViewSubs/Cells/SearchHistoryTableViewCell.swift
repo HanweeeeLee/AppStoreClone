@@ -8,16 +8,33 @@
 import UIKit
 
 class SearchHistoryTableViewCell: UITableViewCell {
-
+    
+    //MARK: IBOutlet
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var searchHistoryLabel: UILabel!
+    
+    //MARK: property
+    
+    //MARK: lifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        initUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK: function
+    
+    func initUI() {
+        
     }
+    
+    //MARK: action
+    
+    @IBAction func deleteSearchHistory(_ sender: Any) {
+        
+    }
+    
+    
+    
     
 }

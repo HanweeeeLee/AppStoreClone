@@ -4,20 +4,85 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoryTableViewCell" id="KGk-i7-Jjw" customClass="SearchHistoryTableViewCell" customModule="kakaobank_leehanwe_homework" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoryTableViewCell" rowHeight="95" id="KGk-i7-Jjw" customClass="SearchHistoryTableViewCell" customModule="kakaobank_leehanwe_homework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBA-hr-rfB">
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-xv-OfW">
+                                <rect key="frame" x="10" y="37" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-SE-7FR">
+                                <rect key="frame" x="355" y="40" width="15" height="15"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.bin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mAK-oh-qO0">
+                                        <rect key="frame" x="0.0" y="1" width="15" height="12.5"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mM-5m-eLo">
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <connections>
+                                            <action selector="deleteSearchHistory:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1ij-Ht-St7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="720-5W-mdv"/>
+                                    <constraint firstAttribute="trailing" secondItem="mAK-oh-qO0" secondAttribute="trailing" id="LjJ-xa-CIJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7mM-5m-eLo" secondAttribute="trailing" id="Mup-9W-kEx"/>
+                                    <constraint firstAttribute="bottom" secondItem="mAK-oh-qO0" secondAttribute="bottom" id="WDU-vn-dOB"/>
+                                    <constraint firstAttribute="bottom" secondItem="7mM-5m-eLo" secondAttribute="bottom" id="ZCd-tu-LCx"/>
+                                    <constraint firstAttribute="width" constant="15" id="bid-qT-V1Z"/>
+                                    <constraint firstItem="7mM-5m-eLo" firstAttribute="top" secondItem="qvP-SE-7FR" secondAttribute="top" id="ne7-tO-U4j"/>
+                                    <constraint firstItem="7mM-5m-eLo" firstAttribute="leading" secondItem="qvP-SE-7FR" secondAttribute="leading" id="qLY-u1-cXN"/>
+                                    <constraint firstItem="mAK-oh-qO0" firstAttribute="leading" secondItem="qvP-SE-7FR" secondAttribute="leading" id="tS1-6t-xtt"/>
+                                    <constraint firstItem="mAK-oh-qO0" firstAttribute="top" secondItem="qvP-SE-7FR" secondAttribute="top" id="tiI-PP-GNj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qvP-SE-7FR" secondAttribute="trailing" constant="10" id="F0s-Vg-h7x"/>
+                            <constraint firstItem="qvP-SE-7FR" firstAttribute="leading" secondItem="Rz3-xv-OfW" secondAttribute="trailing" constant="10" id="KmE-yT-2jb"/>
+                            <constraint firstItem="Rz3-xv-OfW" firstAttribute="centerY" secondItem="kBA-hr-rfB" secondAttribute="centerY" id="Tlj-Qf-1Us"/>
+                            <constraint firstItem="qvP-SE-7FR" firstAttribute="centerY" secondItem="kBA-hr-rfB" secondAttribute="centerY" id="fwT-hP-klz"/>
+                            <constraint firstItem="Rz3-xv-OfW" firstAttribute="leading" secondItem="kBA-hr-rfB" secondAttribute="leading" constant="10" id="w4J-Uc-P5y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kBA-hr-rfB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HfA-iv-2Aj"/>
+                    <constraint firstAttribute="bottom" secondItem="kBA-hr-rfB" secondAttribute="bottom" id="lue-bh-IJx"/>
+                    <constraint firstItem="kBA-hr-rfB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vCs-c2-Tag"/>
+                    <constraint firstAttribute="trailing" secondItem="kBA-hr-rfB" secondAttribute="trailing" id="x9f-Th-mW2"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="112" y="80"/>
+            <connections>
+                <outlet property="containerView" destination="kBA-hr-rfB" id="R3Z-gF-crG"/>
+                <outlet property="searchHistoryLabel" destination="Rz3-xv-OfW" id="png-6f-bQx"/>
+            </connections>
+            <point key="canvasLocation" x="155.07246376811597" y="96.763392857142847"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="xmark.bin" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
