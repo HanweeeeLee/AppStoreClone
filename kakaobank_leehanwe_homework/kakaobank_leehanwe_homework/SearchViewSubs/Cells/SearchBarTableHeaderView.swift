@@ -12,6 +12,8 @@ protocol SearchBarTableHeaderViewDelegate: class {
     func searchBarTextDidBeginEditing(_ view: SearchBarTableHeaderView)
     func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView)
     func searchCancelAction(_ view: SearchBarTableHeaderView)
+    func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String)
+    func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView)
 }
 
 class SearchBarTableHeaderView: UITableViewHeaderFooterView {
@@ -64,6 +66,9 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
         self.cancelBtn.setTitle(LocalizedMap.CANCEL.localized, for: .normal)
         self.originSearchBarTraillingConstraint = searchBarTraillingConstraint.constant
         self.originCancelBtnTraillingConstraint = cancelBtnTraillingConstraint.constant
+        self.searchBar.returnKeyType = .search
+        self.searchBar.enablesReturnKeyAutomatically = true
+        self.searchBar.placeholder = LocalizedMap.PLACE_HOLDER_SEARCH_NAR_TABLE_HEADER_VIEW.localized
     }
     
     func setColorEffect(percent: CGFloat) {
@@ -119,6 +124,10 @@ extension SearchBarTableHeaderView: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        print("searchText:\(searchText)") //자동완성할때 쓴다.
+        self.delegate?.searchBarInputedText(self, text: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.delegate?.searchBarSearchBtnClicked(self)
     }
 }

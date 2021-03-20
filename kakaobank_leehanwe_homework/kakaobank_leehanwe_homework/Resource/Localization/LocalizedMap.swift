@@ -20,4 +20,8 @@ class LocalizedMap {
     //MARK: SearchViewController
 
     static let TITLE_SEARCH_VIEW_CONTROLLER: String = "title_search_view_controller"
+    
+    //MARK: SearchBarTableHeaderView
+
+    static let PLACE_HOLDER_SEARCH_NAR_TABLE_HEADER_VIEW: String = "place_holder_search_nar_table_header_view"
 }

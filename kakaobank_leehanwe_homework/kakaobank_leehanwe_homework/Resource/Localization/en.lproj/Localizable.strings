@@ -18,3 +18,7 @@
 //MARK: SearchViewController
 
 "title_search_view_controller" = "검색";
+
+//MARK: SearchBarTableHeaderView
+
+"place_holder_search_nar_table_header_view" = "게임, 앱, 스토리 등";
