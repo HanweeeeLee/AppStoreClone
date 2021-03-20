@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     
     enum SearchBarState {
         case history
+        case nonInputHistory
         case autoComplete
         case searched
     }
@@ -22,14 +23,23 @@ class SearchViewController: UIViewController {
     //MARK: State
     var currentState: SearchBarState = .history {
         didSet {
-            switch self.currentState {
-            case .history:
-                break
-            case .autoComplete:
-                self.tableView.reloadData()
-                break
-            case .searched:
-                break
+            if oldValue != self.currentState {
+                print("newState!: \(self.currentState)")
+                switch self.currentState {
+                case .history:
+                    self.navigationController?.setNavigationBarHidden(false, animated: false)
+                    self.tableView.reloadData()
+                    break
+                case .nonInputHistory:
+                    self.navigationController?.setNavigationBarHidden(true, animated: false)
+                    self.tableView.reloadData()
+                    break
+                case .autoComplete:
+                    self.tableView.reloadData()
+                    break
+                case .searched:
+                    break
+                }
             }
         }
     }
@@ -106,7 +116,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            switch self.currentState {
+            case .history:
+                return 1
+            case .nonInputHistory:
+                return 0
+            case .autoComplete:
+                return 0
+            case .searched:
+                return 0
+            }
         case 1:
             return 100
         default:
@@ -177,10 +196,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 self.titleSectionEffectPercent = scrollView.contentOffset.y/titleSectionHeight
             }
             break
+        case .nonInputHistory:
+            break
         case .autoComplete:
             break
         case .searched:
             break
+        
         }
     }
     
@@ -197,6 +219,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
             break
+        case .nonInputHistory:
+            break
         case .autoComplete:
             break
         case .searched:
@@ -208,7 +232,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension SearchViewController : SearchBarTableHeaderViewDelegate {
+    func searchCancelAction(_ view: SearchBarTableHeaderView) {
+        self.currentState = .history
+    }
+    
     func searchBarTextDidBeginEditing(_ view: SearchBarTableHeaderView) {
+        self.currentState = .nonInputHistory
     }
     
     func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView) {

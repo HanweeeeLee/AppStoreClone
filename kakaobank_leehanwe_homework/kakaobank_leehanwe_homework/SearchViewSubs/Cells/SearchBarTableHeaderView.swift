@@ -11,6 +11,7 @@ import SnapKit
 protocol SearchBarTableHeaderViewDelegate: class {
     func searchBarTextDidBeginEditing(_ view: SearchBarTableHeaderView)
     func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView)
+    func searchCancelAction(_ view: SearchBarTableHeaderView)
 }
 
 class SearchBarTableHeaderView: UITableViewHeaderFooterView {
@@ -31,11 +32,14 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
             case .history:
                 hideCancelBtn()
                 break
+            case .nonInputHistory:
+                break
             case .autoComplete:
                 showCancelBtn()
                 break
             case .searched:
                 break
+            
             }
         }
     }
@@ -95,6 +99,9 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
     
     //MARK: action
     @IBAction func cancelAction(_ sender: Any) {
+        self.searchBar.endEditing(true)
+        hideCancelBtn()
+        self.delegate?.searchCancelAction(self)
     }
 
 }
@@ -109,7 +116,6 @@ extension SearchBarTableHeaderView: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.delegate?.searchBarTextDidEndEditing(self)
         print("searchBarTextDidEndEditing")
-        hideCancelBtn()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
