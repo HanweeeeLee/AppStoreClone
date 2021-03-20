@@ -13,7 +13,7 @@ protocol SearchBarTableHeaderViewDelegate: class {
     func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView)
     func searchCancelAction(_ view: SearchBarTableHeaderView)
     func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String)
-    func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView)
+    func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView, text: String)
 }
 
 class SearchBarTableHeaderView: UITableViewHeaderFooterView {
@@ -128,6 +128,8 @@ extension SearchBarTableHeaderView: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.delegate?.searchBarSearchBtnClicked(self)
+        if let keyword = self.searchBar.text {
+            self.delegate?.searchBarSearchBtnClicked(self, text: keyword)
+        }
     }
 }

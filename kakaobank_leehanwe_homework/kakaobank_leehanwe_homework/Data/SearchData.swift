@@ -19,8 +19,8 @@ struct SearchData: FlexibleModelProtocol {
     var sellerName: String = ""
     var primaryGenreName: String = ""
     var languageCodesISO2A: [String] = []
-    var fileSizeBytes: Int = -1
-    var sellerUrl: String = ""
+    var fileSizeBytes: String = ""
+    var sellerUrl: String? = ""
     var price: String = ""
     var contentAdvisoryRating: String = ""
     var averageUserRating: Float = 0.0

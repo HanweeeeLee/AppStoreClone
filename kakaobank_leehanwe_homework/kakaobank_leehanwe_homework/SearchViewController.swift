@@ -232,12 +232,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension SearchViewController : SearchBarTableHeaderViewDelegate {
-    func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
-        //todo 자동완성 로직
+    func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView, text: String) {
+        //todo 검색
+        self.presenter.search(keyword: text, completeHandler: { response in
+            print("response:\(response)")
+        }, failureHandler: { err in
+            
+        })
     }
     
-    func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView) {
-        //todo 검색
+    func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
+        //todo 자동완성 로직
     }
     
     func searchCancelAction(_ view: SearchBarTableHeaderView) {

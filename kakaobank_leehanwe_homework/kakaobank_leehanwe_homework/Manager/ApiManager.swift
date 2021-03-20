@@ -22,7 +22,11 @@ enum ApiManagerType {
 
 class ApiManager {
     class func query(url:String,function:ApiManagerRequestFunction,header:[String:Any]?,param:[String:Any]?,requestType:ApiManagerType,responseType:ApiManagerType,timeout:UInt = 60,completeHanlder: @escaping (Data) -> (),failureHandler: @escaping (Error) -> ()) {
-        guard let realUrl = URL(string: url) else {
+        guard let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            //todo 에러처리
+            return
+        }
+        guard let realUrl = URL(string: encodedURL) else {
             //todo 에러처리
             return
         }
