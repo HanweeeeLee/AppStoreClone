@@ -15,6 +15,8 @@
 		78AA030D2606053E004960E1 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78AA030B2606053E004960E1 /* SearchResultTableViewCell.xib */; };
 		78AA03172606158A004960E1 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA03162606158A004960E1 /* UIImageViewExtension.swift */; };
 		78AA031B260618DB004960E1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA031A260618DB004960E1 /* ImageCacheManager.swift */; };
+		78AA032126062BF4004960E1 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA032026062BF4004960E1 /* CommonUtil.swift */; };
+		78AA0325260636D7004960E1 /* CommonUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA0324260636D7004960E1 /* CommonUtilTests.swift */; };
 		78B58C0C26049A5B006A0B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C0B26049A5B006A0B11 /* AppDelegate.swift */; };
 		78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C0D26049A5B006A0B11 /* SceneDelegate.swift */; };
 		78B58C1326049A5B006A0B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1126049A5B006A0B11 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		78AA030B2606053E004960E1 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		78AA03162606158A004960E1 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		78AA031A260618DB004960E1 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		78AA032026062BF4004960E1 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
+		78AA0324260636D7004960E1 /* CommonUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtilTests.swift; sourceTree = "<group>"; };
 		78B58C0826049A5B006A0B11 /* kakaobank_leehanwe_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakaobank_leehanwe_homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B58C0B26049A5B006A0B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78B58C0D26049A5B006A0B11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		78B58C2D2604A0D3006A0B11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				78AA032026062BF4004960E1 /* CommonUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			children = (
 				78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */,
 				78B58C3C2604A0F0006A0B11 /* Info.plist */,
+				78AA0324260636D7004960E1 /* CommonUtilTests.swift */,
 			);
 			path = kakaobank_leehanwe_homeworkTests;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				78AA031B260618DB004960E1 /* ImageCacheManager.swift in Sources */,
 				78AA03172606158A004960E1 /* UIImageViewExtension.swift in Sources */,
 				78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */,
+				78AA032126062BF4004960E1 /* CommonUtil.swift in Sources */,
 				78B58C712604AB44006A0B11 /* SearchBarTableHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AA0325260636D7004960E1 /* CommonUtilTests.swift in Sources */,
 				78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,25 +34,30 @@ class SearchResultTableViewCell: UITableViewCell {
     var infoData: SearchData? {
         didSet {
             guard let info = self.infoData else { return }
-            self.iconImgView.downloadOrCachedImage(urlString: info.icon60)
-            for i in 0..<info.screenshotUrls.count {
-                if i == 0 {
-                    self.screenShotImgView1.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+            DispatchQueue.main.async { [weak self] in
+                self?.iconImgView.downloadOrCachedImage(urlString: info.icon60)
+                for i in 0..<info.screenshotUrls.count {
+                    if i == 0 {
+                        self?.screenShotImgView1.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                    }
+                    else if i == 1 {
+                        self?.screenShotImgView2.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                    }
+                    else if i == 2 {
+                        self?.screenShotImgView3.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                    }
+                    else {
+                        break
+                    }
                 }
-                else if i == 1 {
-                    self.screenShotImgView2.downloadOrCachedImage(urlString: info.screenshotUrls[i])
-                }
-                else if i == 2 {
-                    self.screenShotImgView3.downloadOrCachedImage(urlString: info.screenshotUrls[i])
-                }
-                else {
-                    break
-                }
+                self?.appNameLabel.text = info.trackName
+                self?.appSubTitleLabel.text = info.trackCensoredName
+                self?.makeStartImg(rating: info.averageUserRating)
+                self?.downloadCntLabel.text = CommonUtil.over10000Convertor(originValue: UInt(info.userRatingCount), keyword: "만")
             }
-            self.appNameLabel.text = info.trackName
-            self.appSubTitleLabel.text = info.trackCensoredName
         }
     }
+    
     //MARK: lifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -75,16 +80,86 @@ class SearchResultTableViewCell: UITableViewCell {
         self.appNameLabel.textColor = .black
         
         self.appSubTitleLabel.font = UIFont(name: CommonDefine.FontLightKey, size: 10)
-//        self.appSubTitleLabel.text =
         self.appSubTitleLabel.textColor = .lightGray
         
         self.starContainerView.backgroundColor = .clear
         
         self.downloadCntLabel.font = UIFont(name: CommonDefine.FontLightKey, size: 10)
-        //        self.downloadCntLabel.text =
         self.downloadCntLabel.textColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     
+    private func makeStartImg(rating: Float) {
+        if rating == 5 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.fill")
+            self.starImgView4.image = UIImage(systemName: "star.fill")
+            self.starImgView5.image = UIImage(systemName: "star.fill")
+        }
+        else if rating >= 4.5 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.fill")
+            self.starImgView4.image = UIImage(systemName: "star.fill")
+            self.starImgView5.image = UIImage(systemName: "star.leadinghalf.fill")
+        }
+        else if rating >= 4 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.fill")
+            self.starImgView4.image = UIImage(systemName: "star.fill")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 3.5 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.fill")
+            self.starImgView4.image = UIImage(systemName: "star.leadinghalf.fill")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 3 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.fill")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 2.5 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star.leadinghalf.fill")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 2 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.fill")
+            self.starImgView3.image = UIImage(systemName: "star")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 1.5 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star.leadinghalf.fill")
+            self.starImgView3.image = UIImage(systemName: "star")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else if rating >= 1 {
+            self.starImgView1.image = UIImage(systemName: "star.fill")
+            self.starImgView2.image = UIImage(systemName: "star")
+            self.starImgView3.image = UIImage(systemName: "star")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+        else {
+            self.starImgView1.image = UIImage(systemName: "star.leadinghalf.fill")
+            self.starImgView2.image = UIImage(systemName: "star")
+            self.starImgView3.image = UIImage(systemName: "star")
+            self.starImgView4.image = UIImage(systemName: "star")
+            self.starImgView5.image = UIImage(systemName: "star")
+        }
+    }
     //MARK: action
     @IBAction func downloadAction(_ sender: Any) {
     }

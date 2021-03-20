@@ -97,8 +97,8 @@
                                                             <constraint firstAttribute="height" constant="15" id="oFZ-f4-H2l"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="865-kg-cFq">
-                                                        <rect key="frame" x="32" y="-0.5" width="15" height="15"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="865-kg-cFq">
+                                                        <rect key="frame" x="32" y="0.0" width="15" height="15"/>
                                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="BeB-5y-LeB"/>
@@ -258,6 +258,7 @@
     </objects>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.leadinghalf.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -30,6 +30,7 @@ struct SearchData: FlexibleModelProtocol {
     var releaseNotes: String = ""
     var description: String = ""
     var version: String = ""
+    var userRatingCount: Int = -1
     
     enum CodingKeys : String, CodingKey {
         case screenshotUrls
@@ -54,5 +55,6 @@ struct SearchData: FlexibleModelProtocol {
         case releaseNotes
         case description
         case version
+        case userRatingCount
     }
 }
