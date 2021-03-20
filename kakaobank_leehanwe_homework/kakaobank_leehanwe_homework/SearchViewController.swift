@@ -20,7 +20,19 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: State
-    var currentState: SearchBarState = .history
+    var currentState: SearchBarState = .history {
+        didSet {
+            switch self.currentState {
+            case .history:
+                break
+            case .autoComplete:
+                self.tableView.reloadData()
+                break
+            case .searched:
+                break
+            }
+        }
+    }
     var isShowingNavigationTitle: Bool = false {
         didSet {
             if oldValue != self.isShowingNavigationTitle {
@@ -106,6 +118,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 1 {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchBarTableHeaderView") as! SearchBarTableHeaderView
             self.searchBarHeaderView = headerView
+            headerView.delegate = self
+            headerView.currentState = self.currentState
             return headerView
         }
         else {
@@ -151,6 +165,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchBarHeaderView?.resignTextInput()
         switch self.currentState {
         case .history:
             if scrollView.contentOffset.y >= self.titleSectionHeight {
@@ -189,4 +204,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+
+extension SearchViewController : SearchBarTableHeaderViewDelegate {
+    func searchBarTextDidBeginEditing(_ view: SearchBarTableHeaderView) {
+    }
+    
+    func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView) {
+        
+    }
 }

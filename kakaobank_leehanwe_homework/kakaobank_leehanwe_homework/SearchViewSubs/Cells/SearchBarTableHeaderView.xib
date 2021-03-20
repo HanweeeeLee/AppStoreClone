@@ -21,7 +21,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UXG-Ia-p5a">
-                            <rect key="frame" x="10" y="9" width="340" height="56"/>
+                            <rect key="frame" x="10" y="8.5" width="391" height="56"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHI-cF-8PX">
@@ -40,15 +40,15 @@
                     <constraints>
                         <constraint firstItem="o6y-gk-29S" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" id="0iM-Uq-rOp"/>
                         <constraint firstAttribute="trailing" secondItem="V3r-E9-jBW" secondAttribute="trailing" id="59J-g1-U8k"/>
+                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="centerY" secondItem="l8Y-LP-Iae" secondAttribute="centerY" id="B7M-Xj-Yhi"/>
                         <constraint firstAttribute="trailing" secondItem="yHI-cF-8PX" secondAttribute="trailing" constant="10" id="Gj4-mT-noz"/>
                         <constraint firstAttribute="trailing" secondItem="o6y-gk-29S" secondAttribute="trailing" id="KXi-B8-5eP"/>
-                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="centerY" secondItem="l8Y-LP-Iae" secondAttribute="centerY" id="SbB-rm-b4X"/>
-                        <constraint firstItem="yHI-cF-8PX" firstAttribute="centerY" secondItem="UXG-Ia-p5a" secondAttribute="centerY" id="UjV-sn-LR7"/>
+                        <constraint firstAttribute="trailing" secondItem="UXG-Ia-p5a" secondAttribute="trailing" constant="10" id="UwX-gd-uNM"/>
                         <constraint firstAttribute="bottom" secondItem="o6y-gk-29S" secondAttribute="bottom" id="dJk-xe-28F"/>
+                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" constant="10" id="dj2-TZ-5GR"/>
+                        <constraint firstItem="yHI-cF-8PX" firstAttribute="centerY" secondItem="l8Y-LP-Iae" secondAttribute="centerY" id="eAL-Wr-ohH"/>
                         <constraint firstItem="V3r-E9-jBW" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" id="geY-fE-TQI"/>
-                        <constraint firstItem="UXG-Ia-p5a" firstAttribute="leading" secondItem="l8Y-LP-Iae" secondAttribute="leading" constant="10" id="hQV-jU-gaO"/>
                         <constraint firstItem="o6y-gk-29S" firstAttribute="top" secondItem="l8Y-LP-Iae" secondAttribute="top" id="lIi-SX-mba"/>
-                        <constraint firstItem="yHI-cF-8PX" firstAttribute="leading" secondItem="UXG-Ia-p5a" secondAttribute="trailing" constant="5" id="mV4-Vu-66y"/>
                         <constraint firstAttribute="bottom" secondItem="V3r-E9-jBW" secondAttribute="bottom" id="rsQ-27-2w1"/>
                     </constraints>
                 </view>
@@ -63,10 +63,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cancelBtn" destination="yHI-cF-8PX" id="9Hf-Uu-ZoP"/>
+                <outlet property="cancelBtnTraillingConstraint" destination="Gj4-mT-noz" id="Vfn-vb-aHy"/>
                 <outlet property="colorView" destination="o6y-gk-29S" id="J87-6o-Pdc"/>
                 <outlet property="containerView" destination="l8Y-LP-Iae" id="gyl-ah-E6c"/>
                 <outlet property="lineView" destination="V3r-E9-jBW" id="iDF-Qg-1Cz"/>
                 <outlet property="searchBar" destination="UXG-Ia-p5a" id="7Uk-oQ-bin"/>
+                <outlet property="searchBarTraillingConstraint" destination="UwX-gd-uNM" id="o6V-nV-T4m"/>
             </connections>
             <point key="canvasLocation" x="116.66666666666667" y="90.066964285714278"/>
         </view>
