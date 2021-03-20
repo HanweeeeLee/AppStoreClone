@@ -15,6 +15,7 @@ struct SearchData: FlexibleModelProtocol {
     var icon100: String = ""
     var minimumOsVersion: String = ""
     var trackName: String = ""
+    var trackCensoredName: String? = ""
     var releaseDate: String = ""
     var sellerName: String = ""
     var primaryGenreName: String = ""
@@ -38,6 +39,7 @@ struct SearchData: FlexibleModelProtocol {
         case icon100 = "artworkUrl100"
         case minimumOsVersion
         case trackName
+        case trackCensoredName
         case releaseDate
         case sellerName
         case primaryGenreName

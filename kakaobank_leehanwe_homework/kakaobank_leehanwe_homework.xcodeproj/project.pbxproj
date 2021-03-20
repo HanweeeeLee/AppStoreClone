@@ -13,6 +13,8 @@
 		789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55692605AE0E00B8CBEF /* SearchData.swift */; };
 		78AA030C2606053E004960E1 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA030A2606053E004960E1 /* SearchResultTableViewCell.swift */; };
 		78AA030D2606053E004960E1 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78AA030B2606053E004960E1 /* SearchResultTableViewCell.xib */; };
+		78AA03172606158A004960E1 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA03162606158A004960E1 /* UIImageViewExtension.swift */; };
+		78AA031B260618DB004960E1 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA031A260618DB004960E1 /* ImageCacheManager.swift */; };
 		78B58C0C26049A5B006A0B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C0B26049A5B006A0B11 /* AppDelegate.swift */; };
 		78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C0D26049A5B006A0B11 /* SceneDelegate.swift */; };
 		78B58C1326049A5B006A0B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1126049A5B006A0B11 /* Main.storyboard */; };
@@ -20,7 +22,6 @@
 		78B58C1826049A5C006A0B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1626049A5C006A0B11 /* LaunchScreen.storyboard */; };
 		78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C2A2604A012006A0B11 /* SearchViewController.swift */; };
 		78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */; };
-		78B58C4F2604A274006A0B11 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C4E2604A274006A0B11 /* MVVMProtocol.swift */; };
 		78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */; };
 		78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */; };
 		78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */; };
@@ -57,6 +58,8 @@
 		789E55692605AE0E00B8CBEF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		78AA030A2606053E004960E1 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		78AA030B2606053E004960E1 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		78AA03162606158A004960E1 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		78AA031A260618DB004960E1 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		78B58C0826049A5B006A0B11 /* kakaobank_leehanwe_homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakaobank_leehanwe_homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B58C0B26049A5B006A0B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78B58C0D26049A5B006A0B11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +71,6 @@
 		78B58C382604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakaobank_leehanwe_homeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kakaobank_leehanwe_homeworkTests.swift; sourceTree = "<group>"; };
 		78B58C3C2604A0F0006A0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78B58C4E2604A274006A0B11 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
 		78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleTableViewCell.swift; sourceTree = "<group>"; };
 		78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTitleTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,7 +177,6 @@
 		78B58C2F2604A0D3006A0B11 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				78B58C4E2604A274006A0B11 /* MVVMProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -199,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				78BC2FAC2604DD38002D33B7 /* ApiManager.swift */,
+				78AA031A260618DB004960E1 /* ImageCacheManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				78B58D2B2604C20D006A0B11 /* StringExtension.swift */,
+				78AA03162606158A004960E1 /* UIImageViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -495,7 +498,6 @@
 			files = (
 				78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */,
 				78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */,
-				78B58C4F2604A274006A0B11 /* MVVMProtocol.swift in Sources */,
 				78AA030C2606053E004960E1 /* SearchResultTableViewCell.swift in Sources */,
 				78B58D1A2604C015006A0B11 /* CommonDefine.swift in Sources */,
 				78B58C6C2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift in Sources */,
@@ -508,6 +510,8 @@
 				789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */,
 				78BC2FAD2604DD38002D33B7 /* ApiManager.swift in Sources */,
 				789E55642605AD8E00B8CBEF /* SearchService.swift in Sources */,
+				78AA031B260618DB004960E1 /* ImageCacheManager.swift in Sources */,
+				78AA03172606158A004960E1 /* UIImageViewExtension.swift in Sources */,
 				78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */,
 				78B58C712604AB44006A0B11 /* SearchBarTableHeaderView.swift in Sources */,
 			);

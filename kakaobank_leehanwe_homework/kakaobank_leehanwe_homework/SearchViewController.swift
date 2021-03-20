@@ -185,7 +185,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case 1:
             if currentState == .searched {
-                returnValue = 200 //임시 계산해야함
+                returnValue = 80 + ((UIScreen.main.bounds.width - 40)/3 * 2.5) + 10
             }
             else {
                 returnValue = 50

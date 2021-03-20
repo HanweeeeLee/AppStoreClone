@@ -10,6 +10,8 @@ import UIKit
 class SearchResultTableViewCell: UITableViewCell {
     //MARK: IBOutlet
     @IBOutlet weak var mainContainerView: UIView!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var iconImgView: UIImageView!
     @IBOutlet weak var downloadBtnView: UIView!
     @IBOutlet weak var downloadBtn: UIButton!
@@ -32,8 +34,23 @@ class SearchResultTableViewCell: UITableViewCell {
     var infoData: SearchData? {
         didSet {
             guard let info = self.infoData else { return }
-            print("info:\(info)")
-            
+            self.iconImgView.downloadOrCachedImage(urlString: info.icon60)
+            for i in 0..<info.screenshotUrls.count {
+                if i == 0 {
+                    self.screenShotImgView1.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                }
+                else if i == 1 {
+                    self.screenShotImgView2.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                }
+                else if i == 2 {
+                    self.screenShotImgView3.downloadOrCachedImage(urlString: info.screenshotUrls[i])
+                }
+                else {
+                    break
+                }
+            }
+            self.appNameLabel.text = info.trackName
+            self.appSubTitleLabel.text = info.trackCensoredName
         }
     }
     //MARK: lifeCycle
@@ -45,23 +62,27 @@ class SearchResultTableViewCell: UITableViewCell {
     
     func initUI() {
         self.mainContainerView.backgroundColor = .white
-        self.downloadBtnView.layer.cornerRadius = 15
+        self.downloadBtnView.layer.cornerRadius = 10
+        self.topView.backgroundColor = .clear
         self.downloadBtnView.backgroundColor = .lightGray
         self.downloadBtn.setTitle(LocalizedMap.DOWNLOAD_SEARCH_RESULT_TABLE_VIEW_CELL.localized, for: .normal)
         self.topContainerView.backgroundColor = .clear
-//        self.appNameLabel.font =
-//        self.appNameLabel.text =
-//        self.appNameLabel.textColor =
+        self.iconImgView.layer.cornerRadius = 10
+        self.screenShotImgView1.layer.cornerRadius = 10
+        self.screenShotImgView2.layer.cornerRadius = 10
+        self.screenShotImgView3.layer.cornerRadius = 10
+        self.appNameLabel.font = UIFont(name: CommonDefine.FontMediumKey, size: 15)
+        self.appNameLabel.textColor = .black
         
-        //        self.appSubTitleLabel.font =
-        //        self.appSubTitleLabel.text =
-        //        self.appSubTitleLabel.textColor =
+        self.appSubTitleLabel.font = UIFont(name: CommonDefine.FontLightKey, size: 10)
+//        self.appSubTitleLabel.text =
+        self.appSubTitleLabel.textColor = .lightGray
         
         self.starContainerView.backgroundColor = .clear
         
-//        self.downloadCntLabel.font =
+        self.downloadCntLabel.font = UIFont(name: CommonDefine.FontLightKey, size: 10)
         //        self.downloadCntLabel.text =
-        //        self.downloadCntLabel.textColor =
+        self.downloadCntLabel.textColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     
     //MARK: action
