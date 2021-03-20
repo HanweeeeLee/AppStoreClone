@@ -69,6 +69,17 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //MARK: data
+    
+    var searchResultData: [SearchData] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData() //이렇게 넣으면 안될수도 있음. todo check
+                print("이게 많이 호출되면 안된다 !!!!!!")
+            }
+        }
+    }
+    
     //MARK: property
     
     weak var searchBarHeaderView: SearchBarTableHeaderView? = nil
@@ -92,6 +103,8 @@ class SearchViewController: UIViewController {
         self.tableView.register(UINib(nibName: "SearchTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTitleTableViewCell")
         self.tableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchHistoryTableViewCell")
         self.tableView.register(UINib(nibName: "SearchAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchAutoCompleteTableViewCell")
+        self.tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
+        
         let titleHeaderNib = UINib.init(nibName: "SearchBarTableHeaderView", bundle: Bundle.main)
         self.tableView.register(titleHeaderNib, forHeaderFooterViewReuseIdentifier: "SearchBarTableHeaderView")
         self.tableView.separatorStyle = .none
@@ -127,7 +140,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 return 0
             }
         case 1:
-            return 100
+            switch self.currentState {
+            case .history:
+                return 100
+            case .nonInputHistory:
+                return 100
+            case .autoComplete:
+                return 100
+            case .searched:
+                return self.searchResultData.count
+            }
         default:
             return 0
         }
@@ -162,7 +184,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             returnValue = self.titleSectionHeight
             break
         case 1:
-            returnValue = 50
+            if currentState == .searched {
+                returnValue = 200 //임시 계산해야함
+            }
+            else {
+                returnValue = 50
+            }
             break
         default:
             break
@@ -177,7 +204,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case 1:
-            return UITableViewCell()
+            switch self.currentState {
+            case .history:
+                return UITableViewCell()
+            case .nonInputHistory:
+                return UITableViewCell()
+            case .autoComplete:
+                return UITableViewCell()
+            case .searched:
+                let cell: SearchResultTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as! SearchResultTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = self.searchResultData[indexPath.row]
+                return cell
+            }
         default:
             return UITableViewCell()
         }
@@ -233,11 +272,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController : SearchBarTableHeaderViewDelegate {
     func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView, text: String) {
-        //todo 검색
-        self.presenter.search(keyword: text, completeHandler: { response in
-            print("response:\(response)")
-        }, failureHandler: { err in
-            
+        self.searchResultData.removeAll()
+        self.currentState = .searched
+        self.tableView.reloadData()
+        self.presenter.search(keyword: text, completeHandler: { [weak self] response in
+            self?.searchResultData = response
+        }, failureHandler: { [weak self] err in
+            let alert = UIAlertController(title: "error", message: err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+            alert.addAction(okAction)
+            DispatchQueue.main.async {
+                self?.present(alert, animated: false, completion: nil)
+            }
         })
     }
     

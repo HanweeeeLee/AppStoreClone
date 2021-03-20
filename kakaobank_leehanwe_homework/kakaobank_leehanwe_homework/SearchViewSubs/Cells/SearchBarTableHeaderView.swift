@@ -106,6 +106,7 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
     @IBAction func cancelAction(_ sender: Any) {
         self.searchBar.endEditing(true)
         hideCancelBtn()
+        self.searchBar.text = ""
         self.delegate?.searchCancelAction(self)
     }
 

@@ -22,3 +22,7 @@
 //MARK: SearchBarTableHeaderView
 
 "place_holder_search_nar_table_header_view" = "게임, 앱, 스토리 등";
+
+//MARK: SearchResultTableViewCell
+
+"download_search_result_table_view_cell" = "받기";

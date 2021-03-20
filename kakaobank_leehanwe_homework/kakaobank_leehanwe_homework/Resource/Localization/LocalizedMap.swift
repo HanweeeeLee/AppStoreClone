@@ -24,4 +24,9 @@ class LocalizedMap {
     //MARK: SearchBarTableHeaderView
 
     static let PLACE_HOLDER_SEARCH_NAR_TABLE_HEADER_VIEW: String = "place_holder_search_nar_table_header_view"
+    
+    //MARK: SearchResultTableViewCell
+    
+    static let DOWNLOAD_SEARCH_RESULT_TABLE_VIEW_CELL: String = "download_search_result_table_view_cell"
+    
 }
