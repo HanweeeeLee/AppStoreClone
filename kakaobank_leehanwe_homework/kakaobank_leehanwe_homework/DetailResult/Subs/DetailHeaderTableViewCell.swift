@@ -10,7 +10,6 @@ import UIKit
 class DetailHeaderTableViewCell: UITableViewCell {
 
     //MARK: IBOutlet
-    @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var iconImgView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
@@ -38,7 +37,6 @@ class DetailHeaderTableViewCell: UITableViewCell {
     //MARK: function
     
     func initUI() {
-        self.mainContainerView.backgroundColor = .clear
         self.iconImgView.layer.cornerRadius = 15
         self.titleLabel.font = UIFont(name: CommonDefine.FontMediumKey, size: 20)
         self.titleLabel.textColor = .black
@@ -47,7 +45,7 @@ class DetailHeaderTableViewCell: UITableViewCell {
         self.subTitleLabel.textColor = .lightGray
         
         self.downloadBtnView.layer.cornerRadius = 10
-        self.downloadBtnView.backgroundColor = UIColor(red: 51, green: 51, blue: 255, alpha: 1)
+        self.downloadBtnView.backgroundColor = .blue
         
         self.downloadLabel.font =  UIFont(name: CommonDefine.FontMediumKey, size: 12)
         self.downloadLabel.textColor = .white

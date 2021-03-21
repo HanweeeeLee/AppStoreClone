@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetailViewCommonProtocol: class {
+    func reloadTableView()
+}
+
 class DetailViewController: UIViewController, MVPViewControllerProtocol {
     typealias MVPPresenterClassType = DetailPresenter
     typealias SelfType = DetailViewController
@@ -56,9 +60,13 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.dataSource = self
         
         self.tableView.register(UINib(nibName: "DetailHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailHeaderTableViewCell")
-//        self.tableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchHistoryTableViewCell")
-//        self.tableView.register(UINib(nibName: "SearchAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchAutoCompleteTableViewCell")
-//        self.tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
+//        self.tableView.register(UINib(nibName: "DetailInfoCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfoCollectionTableViewCell")
+//        self.tableView.register(UINib(nibName: "DetailPreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailPreViewTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailReleaseNoteTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReleaseNoteTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailRatingTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReviewTableViewCell")
+        
     }
     
     //MARK: action
@@ -70,27 +78,42 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 8
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 안쓸예정
-//        var returnValue: CGFloat = 100
-//        return returnValue
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
+        switch indexPath.row {
         case 0:
             let cell: DetailHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderTableViewCell", for: indexPath) as! DetailHeaderTableViewCell
             cell.selectionStyle = .none
             cell.infoData = self.searchResultData
             return cell
         case 1:
-            return UITableViewCell()
+            return UITableViewCell() //콜렉션천국
+        case 2:
+            let cell: DetailContentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailContentsTableViewCell", for: indexPath) as! DetailContentsTableViewCell
+            cell.selectionStyle = .none
+            cell.infoData = self.searchResultData
+            cell.delegate = self
+            return cell
+        case 3:
+            let cell: DetailRatingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailRatingTableViewCell", for: indexPath) as! DetailRatingTableViewCell
+            cell.selectionStyle = .none
+            cell.infoData = self.searchResultData
+            return cell
+        case 4:
+            return UITableViewCell() //리뷰남기기
+        case 5:
+            let cell: DetailReleaseNoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailReleaseNoteTableViewCell", for: indexPath) as! DetailReleaseNoteTableViewCell
+            cell.selectionStyle = .none
+            cell.infoData = self.searchResultData
+            return cell
+        case 6:
+            return UITableViewCell() //데이터 수집 노가다
+        case 7:
+            return UITableViewCell() //정보
+        case 8:
+            return UITableViewCell() //지원
         default:
             return UITableViewCell()
         }
@@ -102,4 +125,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
+}
+
+extension DetailViewController: DetailViewCommonProtocol {
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
+}
+
+
+extension DetailViewController: DetailContentsTableViewCellDelegate {
 }

@@ -27,8 +27,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlO-ag-gwf">
-                        <rect key="frame" x="20" y="72" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlO-ag-gwf">
+                        <rect key="frame" x="20" y="72" width="264" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,9 @@
                     <constraint firstAttribute="trailing" secondItem="Hxb-q4-yo1" secondAttribute="trailing" constant="20" id="eP4-wW-MYT"/>
                     <constraint firstItem="hlO-ag-gwf" firstAttribute="top" secondItem="euh-HZ-o0h" secondAttribute="bottom" constant="10" id="kJU-ob-Cdi"/>
                     <constraint firstItem="sNx-XS-QmE" firstAttribute="bottom" secondItem="euh-HZ-o0h" secondAttribute="bottom" id="olm-rH-C3h"/>
+                    <constraint firstAttribute="bottom" secondItem="hlO-ag-gwf" secondAttribute="bottom" constant="27" id="u2Z-j3-oVc"/>
                     <constraint firstItem="euh-HZ-o0h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="x5a-UV-dpz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hlO-ag-gwf" secondAttribute="trailing" constant="20" id="yNy-3Z-32n"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

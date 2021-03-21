@@ -18,6 +18,15 @@ class DetailReleaseNoteTableViewCell: UITableViewCell {
     
     //MARK: property
     
+    var infoData: SearchData? = nil {
+        didSet {
+            guard let info = self.infoData else { return }
+            self.versionLabel.text = info.version
+            self.contentsLabel.text = info.releaseNotes
+//            latestUpdateDateLabel.text = todo 
+        }
+    }
+    
     //MARK: lifeCycle
     
     override func awakeFromNib() {
@@ -28,11 +37,15 @@ class DetailReleaseNoteTableViewCell: UITableViewCell {
     //MARK: function
     
     func initUI() {
-        
+        self.titleLabel.font = UIFont(name: CommonDefine.FontBoldKey, size: 30)
+        self.titleLabel.text = LocalizedMap.NEW_FUNCTION.localized
+        self.versionRecordBtn.setTitle(LocalizedMap.VERSION_HISTORY.localized, for: .normal)
+        self.latestUpdateDateLabel.textColor = .lightGray
     }
     
     //MARK: action
     @IBAction func versionRecordAction(_ sender: Any) {
+        print("버전 기록 누름")
     }
     
     

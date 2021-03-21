@@ -14,6 +14,13 @@
 "close" = "닫기";
 "yes" = "네";
 "no" = "아니요";
+"more" = "더 보기";
+"developer" = "개발자";
+"new_function" = "새로운 기능";
+"version" = "버전";
+"version_history" = "버전 기록";
+"before_week" = "%d주전";
+"before_day" = "%d일전";
 
 //MARK: SearchViewController
 
@@ -26,3 +33,9 @@
 //MARK: SearchResultTableViewCell
 
 "download_search_result_table_view_cell" = "받기";
+
+//MARK: Detail
+"rating_and_review" = "평가 및 리뷰";
+"max_rating" = "(최고 5점)";
+"show_all_review" = "모두보기";
+"rating_count" = "%@개의 평가";

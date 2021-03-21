@@ -44,6 +44,7 @@
 		786479282607398B00C93A95 /* DetailSupportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */; };
 		786479392607401900C93A95 /* DetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786479372607401900C93A95 /* DetailReviewTableViewCell.swift */; };
 		7864793A2607401900C93A95 /* DetailReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479382607401900C93A95 /* DetailReviewTableViewCell.xib */; };
+		7864797A26076B0900C93A95 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864797926076B0800C93A95 /* IntExtension.swift */; };
 		789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E555F2605A8F800B8CBEF /* APIDefine.swift */; };
 		789E55642605AD8E00B8CBEF /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55632605AD8E00B8CBEF /* SearchService.swift */; };
 		789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55692605AE0E00B8CBEF /* SearchData.swift */; };
@@ -127,6 +128,7 @@
 		786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailSupportTableViewCell.xib; sourceTree = "<group>"; };
 		786479372607401900C93A95 /* DetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		786479382607401900C93A95 /* DetailReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewTableViewCell.xib; sourceTree = "<group>"; };
+		7864797926076B0800C93A95 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		789E555F2605A8F800B8CBEF /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		789E55632605AD8E00B8CBEF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		789E55692605AE0E00B8CBEF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -222,14 +224,14 @@
 				786478E92607339800C93A95 /* DetailInfoCollectionSubView.xib */,
 				786478DD2607333700C93A95 /* DetailInfoCollectionViewCell.swift */,
 				786478DE2607333700C93A95 /* DetailInfoCollectionViewCell.xib */,
-				786478A92607326500C93A95 /* DetailReleaseNoteTableViewCell.swift */,
-				786478AA2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib */,
 				786478FD2607390500C93A95 /* DetailPreViewTableViewCell.swift */,
 				786478FE2607390500C93A95 /* DetailPreViewTableViewCell.xib */,
 				786478EF2607386500C93A95 /* DetailPreViewSubView.swift */,
 				786478F32607387F00C93A95 /* DetailPreViewSubView.xib */,
 				786478F7260738B600C93A95 /* DetailPreViewCollectionViewCell.swift */,
 				786478F8260738B600C93A95 /* DetailPreViewCollectionViewCell.xib */,
+				786478A92607326500C93A95 /* DetailReleaseNoteTableViewCell.swift */,
+				786478AA2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib */,
 				786479052607393200C93A95 /* DetailContentsTableViewCell.swift */,
 				786479062607393200C93A95 /* DetailContentsTableViewCell.xib */,
 				786479132607395800C93A95 /* DetailRatingTableViewCell.swift */,
@@ -417,6 +419,7 @@
 			children = (
 				78B58D2B2604C20D006A0B11 /* StringExtension.swift */,
 				78AA03162606158A004960E1 /* UIImageViewExtension.swift */,
+				7864797926076B0800C93A95 /* IntExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */,
 				78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */,
 				786478F02607386500C93A95 /* DetailPreViewSubView.swift in Sources */,
+				7864797A26076B0900C93A95 /* IntExtension.swift in Sources */,
 				7864789D26072F1A00C93A95 /* DetailHeaderTableViewCell.swift in Sources */,
 				789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */,
 				78BC2FE52604E678002D33B7 /* SearchPresenter.swift in Sources */,

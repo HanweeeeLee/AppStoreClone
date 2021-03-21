@@ -16,6 +16,18 @@ class LocalizedMap {
     static let CLOSE: String = "close"
     static let YES: String = "yes"
     static let NO: String = "no"
+    static let MORE: String = "more"
+    static let DEVELOPER: String = "developer"
+    static let NEW_FUNCTION: String = "new_function"
+    static let VERSION: String = "version"
+    static let VERSION_HISTORY: String = "version_history"
+    static let BEFORE_WEEK: String = "before_week"
+    static let BEFORE_DAY: String = "before_day"
+    
+    
+    
+    
+
     
     //MARK: SearchViewController
 
@@ -28,5 +40,12 @@ class LocalizedMap {
     //MARK: SearchResultTableViewCell
     
     static let DOWNLOAD_SEARCH_RESULT_TABLE_VIEW_CELL: String = "download_search_result_table_view_cell"
+    
+    //MARK: Detail
+    static let RATING_AND_REVIEW = "rating_and_review"
+    static let MAX_RATING = "max_rating"
+    static let SHOW_ALL_REVIEW = "show_all_review"
+    static let RATING_COUNT = "rating_count"
+
     
 }
