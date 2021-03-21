@@ -30,6 +30,7 @@ class SearchPresenterTests: XCTestCase {
             else {
                 XCTAssertTrue(false)
             }
-        }    }
+        }
+    }
     
 }

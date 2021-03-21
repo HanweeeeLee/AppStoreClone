@@ -102,6 +102,10 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
         self.searchBar.endEditing(true)
     }
     
+    func setTextToSearchBar(text: String) {
+        self.searchBar.text = text
+    }
+    
     //MARK: action
     @IBAction func cancelAction(_ sender: Any) {
         self.searchBar.endEditing(true)

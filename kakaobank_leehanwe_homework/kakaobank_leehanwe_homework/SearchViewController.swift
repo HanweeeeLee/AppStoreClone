@@ -38,6 +38,7 @@ class SearchViewController: UIViewController {
                 case .autoComplete:
                     break
                 case .searched:
+                    self.navigationController?.setNavigationBarHidden(true, animated: false)
                     break
                 }
             }
@@ -119,6 +120,23 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         
+    }
+    
+    func search(text: String) {
+        self.searchResultData.removeAll()
+        self.currentState = .searched
+        self.tableView.reloadData()
+        self.presenter.search(keyword: text, completeHandler: { [weak self] response in
+            self?.searchResultData = response
+        }, failureHandler: { [weak self] err in
+            let alert = UIAlertController(title: "error", message: err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+            alert.addAction(okAction)
+            DispatchQueue.main.async {
+                self?.present(alert, animated: false, completion: nil)
+            }
+        })
     }
     
     //MARK: action
@@ -283,25 +301,36 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 { //0번섹션은 처리하지않음, 오로지 1번섹션(결과들)만
+            switch self.currentState {
+            case .history:
+                let text = self.searchHistoryArr[indexPath.row].searchText
+                self.searchBarHeaderView?.setTextToSearchBar(text: text)
+                search(text: text)
+                break
+            case .nonInputHistory:
+                let text = self.searchHistoryArr[indexPath.row].searchText
+                self.searchBarHeaderView?.setTextToSearchBar(text: text)
+                search(text: text)
+                break
+            case .autoComplete:
+                let text = self.autoCompleteArr[indexPath.row].searchText
+                self.searchBarHeaderView?.setTextToSearchBar(text: text)
+                search(text: text)
+                break
+            case .searched:
+                break
+            }
+        }
+    }
+    
 }
 
 
 extension SearchViewController : SearchBarTableHeaderViewDelegate {
     func searchBarSearchBtnClicked(_ view: SearchBarTableHeaderView, text: String) {
-        self.searchResultData.removeAll()
-        self.currentState = .searched
-        self.tableView.reloadData()
-        self.presenter.search(keyword: text, completeHandler: { [weak self] response in
-            self?.searchResultData = response
-        }, failureHandler: { [weak self] err in
-            let alert = UIAlertController(title: "error", message: err.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            }
-            alert.addAction(okAction)
-            DispatchQueue.main.async {
-                self?.present(alert, animated: false, completion: nil)
-            }
-        })
+        search(text: text)
     }
     
     func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
