@@ -58,7 +58,6 @@ class SearchService: SearchServiceProtocol {
             item.searchText = searchedText
             self.realm.add(item, update: .modified)
         }
-        print("전체DB:\(realm.objects(SearchHistoryData.self))")
     }
     
     func getSearchHistorys() -> Array<SearchHistoryData> {

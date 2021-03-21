@@ -162,6 +162,7 @@ class SearchResultTableViewCell: UITableViewCell {
     }
     //MARK: action
     @IBAction func downloadAction(_ sender: Any) {
+        print("다운로드 클릭")
     }
     
 

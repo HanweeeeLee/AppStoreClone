@@ -74,7 +74,7 @@ class SearchViewController: UIViewController {
     var searchResultData: [SearchData] = [] {
         didSet {
             DispatchQueue.main.async {
-                self.tableView.reloadData() //이렇게 넣으면 안될수도 있음. todo check
+                self.tableView.reloadData()
                 print("이게 많이 호출되면 안된다 !!!!!!")
             }
         }
@@ -149,7 +149,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             case .history:
                 return self.searchHistoryArr.count
             case .nonInputHistory:
-                return 100
+                return self.searchHistoryArr.count
             case .autoComplete:
                 return self.autoCompleteArr.count
             case .searched:
@@ -217,7 +217,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.delegate = self
                 return cell
             case .nonInputHistory:
-                return UITableViewCell()
+                let cell: SearchHistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchHistoryTableViewCell", for: indexPath) as! SearchHistoryTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = self.searchHistoryArr[indexPath.row]
+                cell.delegate = self
+                return cell
             case .autoComplete:
                 let cell: SearchAutoCompleteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchAutoCompleteTableViewCell", for: indexPath) as! SearchAutoCompleteTableViewCell
                 cell.selectionStyle = .none
