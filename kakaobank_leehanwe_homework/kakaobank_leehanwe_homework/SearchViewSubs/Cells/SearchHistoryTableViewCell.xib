@@ -21,19 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="380" height="95"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-xv-OfW">
-                                <rect key="frame" x="10" y="37" width="335" height="21"/>
+                                <rect key="frame" x="20" y="37" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvP-SE-7FR">
-                                <rect key="frame" x="355" y="40" width="15" height="15"/>
+                                <rect key="frame" x="330" y="32.5" width="30" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.bin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mAK-oh-qO0">
-                                        <rect key="frame" x="0.0" y="1" width="15" height="12.5"/>
+                                        <rect key="frame" x="0.0" y="1" width="30" height="27.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mM-5m-eLo">
-                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <connections>
                                             <action selector="deleteSearchHistory:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1ij-Ht-St7"/>
                                         </connections>
@@ -41,12 +41,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="720-5W-mdv"/>
+                                    <constraint firstAttribute="height" constant="30" id="720-5W-mdv"/>
                                     <constraint firstAttribute="trailing" secondItem="mAK-oh-qO0" secondAttribute="trailing" id="LjJ-xa-CIJ"/>
                                     <constraint firstAttribute="trailing" secondItem="7mM-5m-eLo" secondAttribute="trailing" id="Mup-9W-kEx"/>
                                     <constraint firstAttribute="bottom" secondItem="mAK-oh-qO0" secondAttribute="bottom" id="WDU-vn-dOB"/>
                                     <constraint firstAttribute="bottom" secondItem="7mM-5m-eLo" secondAttribute="bottom" id="ZCd-tu-LCx"/>
-                                    <constraint firstAttribute="width" constant="15" id="bid-qT-V1Z"/>
+                                    <constraint firstAttribute="width" constant="30" id="bid-qT-V1Z"/>
                                     <constraint firstItem="7mM-5m-eLo" firstAttribute="top" secondItem="qvP-SE-7FR" secondAttribute="top" id="ne7-tO-U4j"/>
                                     <constraint firstItem="7mM-5m-eLo" firstAttribute="leading" secondItem="qvP-SE-7FR" secondAttribute="leading" id="qLY-u1-cXN"/>
                                     <constraint firstItem="mAK-oh-qO0" firstAttribute="leading" secondItem="qvP-SE-7FR" secondAttribute="leading" id="tS1-6t-xtt"/>
@@ -56,11 +56,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qvP-SE-7FR" secondAttribute="trailing" constant="10" id="F0s-Vg-h7x"/>
+                            <constraint firstAttribute="trailing" secondItem="qvP-SE-7FR" secondAttribute="trailing" constant="20" id="F0s-Vg-h7x"/>
                             <constraint firstItem="qvP-SE-7FR" firstAttribute="leading" secondItem="Rz3-xv-OfW" secondAttribute="trailing" constant="10" id="KmE-yT-2jb"/>
                             <constraint firstItem="Rz3-xv-OfW" firstAttribute="centerY" secondItem="kBA-hr-rfB" secondAttribute="centerY" id="Tlj-Qf-1Us"/>
                             <constraint firstItem="qvP-SE-7FR" firstAttribute="centerY" secondItem="kBA-hr-rfB" secondAttribute="centerY" id="fwT-hP-klz"/>
-                            <constraint firstItem="Rz3-xv-OfW" firstAttribute="leading" secondItem="kBA-hr-rfB" secondAttribute="leading" constant="10" id="w4J-Uc-P5y"/>
+                            <constraint firstItem="Rz3-xv-OfW" firstAttribute="leading" secondItem="kBA-hr-rfB" secondAttribute="leading" constant="20" id="w4J-Uc-P5y"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SearchHistoryTableViewCellDelegate: class {
+    func deleteHistory(key: String)
+}
+
 class SearchHistoryTableViewCell: UITableViewCell {
     
     //MARK: IBOutlet
@@ -14,6 +18,15 @@ class SearchHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var searchHistoryLabel: UILabel!
     
     //MARK: property
+    
+    var infoData: SearchHistoryData? = nil {
+        didSet {
+            guard let info = self.infoData else { return }
+            self.searchHistoryLabel.text = info.searchText
+        }
+    }
+    
+    weak var delegate: SearchHistoryTableViewCellDelegate?
     
     //MARK: lifeCycle
     
@@ -31,7 +44,8 @@ class SearchHistoryTableViewCell: UITableViewCell {
     //MARK: action
     
     @IBAction func deleteSearchHistory(_ sender: Any) {
-        
+        guard let info = self.infoData else { return }
+        self.delegate?.deleteHistory(key: info.searchText)
     }
     
     

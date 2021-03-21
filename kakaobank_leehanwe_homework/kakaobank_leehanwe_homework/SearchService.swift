@@ -7,12 +7,33 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 protocol SearchServiceProtocol {
     func getData(keyword: String, page: UInt, limit: UInt, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ())
+    func appendSearchHistory(searchedText: String)
+    func getSearchHistorys() -> Array<SearchHistoryData>
+    func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ())
 }
 
 class SearchService: SearchServiceProtocol {
+    
+    //MARK: property
+    var realm:Realm = try! Realm()
+    var searchHistoryArr: Results<SearchHistoryData>?
+    
+    //MARK: lifeCycle
+    
+    init() {
+        initRealm()
+    }
+    
+    func initRealm() {
+        self.searchHistoryArr = self.realm.objects(SearchHistoryData.self)
+    }
+    
+    //MARK: function
+    
     func getData(keyword: String, page: UInt, limit: UInt, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ()) {
         ApiManager.query(url: APIDefine.simpleAPIURL(keyword: keyword, page: page, limit: limit), function: .get, header: nil, param: nil, requestType: .json, responseType: .json, completeHanlder: { response in
             let responseJson: JSON = JSON(response)
@@ -30,4 +51,34 @@ class SearchService: SearchServiceProtocol {
             failureHandler(err)
         })
     }
+    
+    func appendSearchHistory(searchedText: String) {
+        try! realm.write {
+            let item = SearchHistoryData()
+            item.searchText = searchedText
+            self.realm.add(item, update: .modified)
+        }
+        print("전체DB:\(realm.objects(SearchHistoryData.self))")
+    }
+    
+    func getSearchHistorys() -> Array<SearchHistoryData> {
+        return Array(realm.objects(SearchHistoryData.self)).sorted(by: { $0.savedDate > $1.savedDate})
+    }
+    
+    func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
+        do {
+            try realm.write {
+                guard let obj = self.realm.object(ofType: SearchHistoryData.self, forPrimaryKey: key) else {
+                    return
+                }
+                self.realm.delete(obj)
+                completeHandler()
+            }
+        } catch {
+            print("Error")
+        }
+    }
+    
+    //MARK: private function
+    
 }

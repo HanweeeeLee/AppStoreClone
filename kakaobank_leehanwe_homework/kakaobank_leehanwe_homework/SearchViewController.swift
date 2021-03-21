@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
                 switch self.currentState {
                 case .history:
                     self.navigationController?.setNavigationBarHidden(false, animated: false)
+                    self.searchHistoryArr = self.presenter.getSearchHistorys()
                     self.tableView.reloadData()
                     break
                 case .nonInputHistory:
@@ -80,6 +81,8 @@ class SearchViewController: UIViewController {
         }
     }
     
+    var searchHistoryArr: Array<SearchHistoryData> = []
+    
     //MARK: property
     
     weak var searchBarHeaderView: SearchBarTableHeaderView? = nil
@@ -91,8 +94,9 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.searchHistoryArr = self.presenter.getSearchHistorys()
         initUI()
+        self.tableView.reloadData()
     }
     
     //MARK: function
@@ -142,7 +146,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch self.currentState {
             case .history:
-                return 100
+                return self.searchHistoryArr.count
             case .nonInputHistory:
                 return 100
             case .autoComplete:
@@ -206,7 +210,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch self.currentState {
             case .history:
-                return UITableViewCell()
+                let cell: SearchHistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchHistoryTableViewCell", for: indexPath) as! SearchHistoryTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = self.searchHistoryArr[indexPath.row]
+                cell.delegate = self
+                return cell
             case .nonInputHistory:
                 return UITableViewCell()
             case .autoComplete:
@@ -302,5 +310,16 @@ extension SearchViewController : SearchBarTableHeaderViewDelegate {
     
     func searchBarTextDidEndEditing(_ view: SearchBarTableHeaderView) {
         
+    }
+}
+
+extension SearchViewController: SearchHistoryTableViewCellDelegate {
+    func deleteHistory(key: String) {
+        self.presenter.deleteSearchHistroy(key: key, completeHandler: {
+            self.searchHistoryArr = self.presenter.getSearchHistorys()
+            self.tableView.reloadData()
+        }, failureHandler: { err in
+            print("delete history error:\(err.localizedDescription)")
+        })
     }
 }

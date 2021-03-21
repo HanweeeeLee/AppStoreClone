@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02C341FB4A06AD8F3BA1B06E /* Pods_kakaobank_leehanwe_homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A173E26C9582AE8D2FF648B /* Pods_kakaobank_leehanwe_homework.framework */; };
+		7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */; };
 		789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E555F2605A8F800B8CBEF /* APIDefine.swift */; };
 		789E55642605AD8E00B8CBEF /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55632605AD8E00B8CBEF /* SearchService.swift */; };
 		789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55692605AE0E00B8CBEF /* SearchData.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		0D5E8707E0401FEEB4AF630D /* Pods-kakaobank_leehanwe_homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homework.release.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homework/Pods-kakaobank_leehanwe_homework.release.xcconfig"; sourceTree = "<group>"; };
 		6A173E26C9582AE8D2FF648B /* Pods_kakaobank_leehanwe_homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakaobank_leehanwe_homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryData.swift; sourceTree = "<group>"; };
 		789E555F2605A8F800B8CBEF /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		789E55632605AD8E00B8CBEF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		789E55692605AE0E00B8CBEF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				789E55692605AE0E00B8CBEF /* SearchData.swift */,
+				7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				78B58D272604C0DA006A0B11 /* LocalizedMap.swift in Sources */,
 				78B58C0C26049A5B006A0B11 /* AppDelegate.swift in Sources */,
 				78B58D2C2604C20D006A0B11 /* StringExtension.swift in Sources */,
+				7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */,
 				78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */,
 				789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */,
 				78BC2FE52604E678002D33B7 /* SearchPresenter.swift in Sources */,

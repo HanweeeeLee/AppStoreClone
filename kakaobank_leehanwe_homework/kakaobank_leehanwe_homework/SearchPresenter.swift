@@ -10,6 +10,8 @@ import UIKit
 protocol SearchPresenterProtocol {
     func search(keyword: String, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ())
     func getNextPageData(completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ())
+    func getSearchHistorys() -> Array<SearchHistoryData>
+    func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ())
 }
 
 class SearchPresenter: SearchPresenterProtocol {
@@ -30,6 +32,7 @@ class SearchPresenter: SearchPresenterProtocol {
     
     //MARK: function
     func search(keyword: String, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ()) {
+        appendHistory(searched: keyword)
         self.currentSearchKeyword = keyword
         self.service.getData(keyword: self.currentSearchKeyword, page: self.currentSearchPage, limit: self.limit, completeHandler: { response in
             self.currentSearchPage += 1
@@ -46,6 +49,24 @@ class SearchPresenter: SearchPresenterProtocol {
         else { //이미 쿼리중이라면
             
         }
+    }
+    
+    func getSearchHistorys() -> Array<SearchHistoryData> {
+        return self.service.getSearchHistorys()
+    }
+    
+    func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
+        self.service.deleteSearchHistroy(key: key, completeHandler: {
+            completeHandler()
+        }, failureHandler: { err in
+            failureHandler(err)
+        })
+    }
+    
+    //MARK: private function
+    
+    private func appendHistory(searched: String) {
+        self.service.appendSearchHistory(searchedText: searched)
     }
     
     //MARK: action
