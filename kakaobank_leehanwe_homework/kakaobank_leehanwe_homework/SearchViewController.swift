@@ -36,7 +36,6 @@ class SearchViewController: UIViewController {
                     self.tableView.reloadData()
                     break
                 case .autoComplete:
-                    self.tableView.reloadData()
                     break
                 case .searched:
                     break
@@ -83,11 +82,13 @@ class SearchViewController: UIViewController {
     
     var searchHistoryArr: Array<SearchHistoryData> = []
     
+    var autoCompleteArr: Array<SearchHistoryData> = []
+    
     //MARK: property
     
     weak var searchBarHeaderView: SearchBarTableHeaderView? = nil
     
-    let presenter: SearchPresenter = SearchPresenter()
+    let presenter: SearchPresenter = SearchPresenter(service: SearchService())
     let titleSectionHeight: CGFloat = 60
     
     //MARK: lifeCycle
@@ -150,7 +151,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             case .nonInputHistory:
                 return 100
             case .autoComplete:
-                return 100
+                return self.autoCompleteArr.count
             case .searched:
                 return self.searchResultData.count
             }
@@ -218,7 +219,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             case .nonInputHistory:
                 return UITableViewCell()
             case .autoComplete:
-                return UITableViewCell()
+                let cell: SearchAutoCompleteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchAutoCompleteTableViewCell", for: indexPath) as! SearchAutoCompleteTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = autoCompleteArr[indexPath.row]
+                return cell
             case .searched:
                 let cell: SearchResultTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as! SearchResultTableViewCell
                 cell.selectionStyle = .none
@@ -297,7 +301,9 @@ extension SearchViewController : SearchBarTableHeaderViewDelegate {
     }
     
     func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
-        //todo 자동완성 로직
+        self.autoCompleteArr = self.presenter.getAutoCompleteHistoryData(keyword: text)
+        self.currentState = .autoComplete
+        self.tableView.reloadData()
     }
     
     func searchCancelAction(_ view: SearchBarTableHeaderView) {

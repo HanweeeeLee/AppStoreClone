@@ -8,16 +8,26 @@
 import UIKit
 
 class SearchAutoCompleteTableViewCell: UITableViewCell {
-
+    
+    //MARK: IBOutlet
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    //MARK: property
+    
+    var infoData: SearchHistoryData? = nil {
+        didSet {
+            guard let info = self.infoData else { return }
+            self.titleLabel.text = info.searchText
+        }
+    }
+    //MARK: lifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    //MARK: function
+    //MARK: action
     
 }

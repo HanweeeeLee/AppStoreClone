@@ -12,6 +12,7 @@ protocol SearchPresenterProtocol {
     func getNextPageData(completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ())
     func getSearchHistorys() -> Array<SearchHistoryData>
     func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ())
+    func getAutoCompleteHistoryData(keyword: String) -> Array<SearchHistoryData>
 }
 
 class SearchPresenter: SearchPresenterProtocol {
@@ -20,7 +21,7 @@ class SearchPresenter: SearchPresenterProtocol {
     
     //MARK: property
     
-    let service: SearchService = SearchService() // MVP에서의 Model
+    let service: SearchServiceProtocol // MVP에서의 Model
     
     var currentSearchKeyword: String = ""
     var currentSearchPage: UInt = 1
@@ -29,6 +30,10 @@ class SearchPresenter: SearchPresenterProtocol {
     var isQuerying: Bool = false
     
     //MARK: lifeCycle
+    
+    init(service: SearchServiceProtocol) {
+        self.service = service
+    }
     
     //MARK: function
     func search(keyword: String, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ()) {
@@ -61,6 +66,18 @@ class SearchPresenter: SearchPresenterProtocol {
         }, failureHandler: { err in
             failureHandler(err)
         })
+    }
+    
+    func getAutoCompleteHistoryData(keyword: String) -> Array<SearchHistoryData> {
+        var returnArr: [SearchHistoryData] = []
+        let currentSavedSearchHistoryData = self.service.getSearchHistorys()
+        for i in 0..<currentSavedSearchHistoryData.count {
+            let item = currentSavedSearchHistoryData[i]
+            if item.searchText.contains(keyword) {
+                returnArr.append(item)
+            }
+        }
+        return returnArr
     }
     
     //MARK: private function

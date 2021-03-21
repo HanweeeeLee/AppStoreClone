@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		02C341FB4A06AD8F3BA1B06E /* Pods_kakaobank_leehanwe_homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A173E26C9582AE8D2FF648B /* Pods_kakaobank_leehanwe_homework.framework */; };
 		7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */; };
+		786478682607012F00C93A95 /* StubSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478652607012F00C93A95 /* StubSearchService.swift */; };
+		786478692607012F00C93A95 /* SaerchDummyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 786478662607012F00C93A95 /* SaerchDummyData.json */; };
+		7864786A2607012F00C93A95 /* SearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478672607012F00C93A95 /* SearchPresenterTests.swift */; };
 		789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E555F2605A8F800B8CBEF /* APIDefine.swift */; };
 		789E55642605AD8E00B8CBEF /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55632605AD8E00B8CBEF /* SearchService.swift */; };
 		789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55692605AE0E00B8CBEF /* SearchData.swift */; };
@@ -57,6 +60,9 @@
 		0D5E8707E0401FEEB4AF630D /* Pods-kakaobank_leehanwe_homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homework.release.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homework/Pods-kakaobank_leehanwe_homework.release.xcconfig"; sourceTree = "<group>"; };
 		6A173E26C9582AE8D2FF648B /* Pods_kakaobank_leehanwe_homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kakaobank_leehanwe_homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryData.swift; sourceTree = "<group>"; };
+		786478652607012F00C93A95 /* StubSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubSearchService.swift; sourceTree = "<group>"; };
+		786478662607012F00C93A95 /* SaerchDummyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaerchDummyData.json; sourceTree = "<group>"; };
+		786478672607012F00C93A95 /* SearchPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenterTests.swift; sourceTree = "<group>"; };
 		789E555F2605A8F800B8CBEF /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		789E55632605AD8E00B8CBEF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		789E55692605AE0E00B8CBEF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -120,6 +126,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		786478642607012F00C93A95 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				786478672607012F00C93A95 /* SearchPresenterTests.swift */,
+				786478652607012F00C93A95 /* StubSearchService.swift */,
+				786478662607012F00C93A95 /* SaerchDummyData.json */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		78B58BFF26049A5B006A0B11 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +244,7 @@
 				78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */,
 				78B58C3C2604A0F0006A0B11 /* Info.plist */,
 				78AA0324260636D7004960E1 /* CommonUtilTests.swift */,
+				786478642607012F00C93A95 /* Search */,
 			);
 			path = kakaobank_leehanwe_homeworkTests;
 			sourceTree = "<group>";
@@ -414,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				786478692607012F00C93A95 /* SaerchDummyData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +552,8 @@
 			files = (
 				78AA0325260636D7004960E1 /* CommonUtilTests.swift in Sources */,
 				78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */,
+				7864786A2607012F00C93A95 /* SearchPresenterTests.swift in Sources */,
+				786478682607012F00C93A95 /* StubSearchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
