@@ -7,6 +7,7 @@ def common_pods
   pod 'SwiftyJSON', '~> 4.0'
   pod 'FlexibleModelProtocol', '~> 1.1'
   pod 'RealmSwift', '=10.1.4'
+  pod 'FSPagerView'
 end
 
 target 'kakaobank_leehanwe_homework' do

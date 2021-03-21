@@ -1,12 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
+${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
 ${BUILT_PRODUCTS_DIR}/FlexibleModelProtocol/FlexibleModelProtocol.framework
-${BUILT_PRODUCTS_DIR}/HWNavigationView/HWNavigationView.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
-${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
-${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
-${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
-${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

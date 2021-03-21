@@ -55,6 +55,49 @@
             </objects>
             <point key="canvasLocation" x="195.6521739130435" y="26.785714285714285"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="bTO-Kz-181">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="im8-Vv-Qca" customClass="DetailViewController" customModule="kakaobank_leehanwe_homework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXe-Nh-YMH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T5-KN-JR6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CkQ-ji-R03">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="CkQ-ji-R03" firstAttribute="top" secondItem="2T5-KN-JR6" secondAttribute="top" id="2hL-OL-Auo"/>
+                                    <constraint firstAttribute="bottom" secondItem="CkQ-ji-R03" secondAttribute="bottom" id="6kb-mY-eFc"/>
+                                    <constraint firstAttribute="trailing" secondItem="CkQ-ji-R03" secondAttribute="trailing" id="Rjg-jl-x6o"/>
+                                    <constraint firstItem="CkQ-ji-R03" firstAttribute="leading" secondItem="2T5-KN-JR6" secondAttribute="leading" id="hyy-uf-Kde"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Byk-eG-sXN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2T5-KN-JR6" firstAttribute="leading" secondItem="Byk-eG-sXN" secondAttribute="leading" id="kJa-7k-Z9n"/>
+                            <constraint firstItem="Byk-eG-sXN" firstAttribute="trailing" secondItem="2T5-KN-JR6" secondAttribute="trailing" id="m4X-0F-400"/>
+                            <constraint firstItem="Byk-eG-sXN" firstAttribute="bottom" secondItem="2T5-KN-JR6" secondAttribute="bottom" id="nh7-uG-QTt"/>
+                            <constraint firstItem="2T5-KN-JR6" firstAttribute="top" secondItem="Byk-eG-sXN" secondAttribute="top" id="xL6-h0-QVM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainContainerView" destination="2T5-KN-JR6" id="TU4-1f-bGe"/>
+                        <outlet property="tableView" destination="CkQ-ji-R03" id="C0Q-1M-c0E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EA9-27-agZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-665" y="686"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

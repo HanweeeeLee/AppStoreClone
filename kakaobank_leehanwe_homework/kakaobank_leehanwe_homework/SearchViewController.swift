@@ -338,6 +338,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 search(text: text)
                 break
             case .searched:
+                if let vc = DetailViewController.makeViewController(presenter: DetailPresenter(), infoData: self.searchResultData[indexPath.row]) {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
                 break
             }
         }

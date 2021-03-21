@@ -1,62 +1,38 @@
 PODS:
-  - Differentiator (5.0.0)
   - FlexibleModelProtocol (1.1.5)
-  - HWNavigationView (1.0.3)
+  - FSPagerView (0.8.3)
   - Realm (10.1.4):
     - Realm/Headers (= 10.1.4)
   - Realm/Headers (10.1.4)
   - RealmSwift (10.1.4):
     - Realm (= 10.1.4)
-  - RxCocoa (6.1.0):
-    - RxRelay (= 6.1.0)
-    - RxSwift (= 6.1.0)
-  - RxDataSources (5.0.0):
-    - Differentiator (~> 5.0)
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
-  - RxRelay (6.1.0):
-    - RxSwift (= 6.1.0)
-  - RxSwift (6.1.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FlexibleModelProtocol (~> 1.1)
-  - HWNavigationView (~> 1.0)
+  - FSPagerView
   - RealmSwift (= 10.1.4)
-  - RxCocoa (= 6.1.0)
-  - RxDataSources
-  - RxSwift (= 6.1.0)
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
-    - Differentiator
     - FlexibleModelProtocol
-    - HWNavigationView
+    - FSPagerView
     - Realm
     - RealmSwift
-    - RxCocoa
-    - RxDataSources
-    - RxRelay
-    - RxSwift
     - SnapKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   FlexibleModelProtocol: 8af8ab4aca678b9f2a81ce80afe72810f301e785
-  HWNavigationView: 2555c6f3abd37e96adaf404c97a3801a615b3972
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
   RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
-  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
-  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
-  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
-  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 02227f9e50be6dbb3edf03f5fd43ebabe5349afa
+PODFILE CHECKSUM: a84c5ec9eaba2319db6011f6b50002924a5ac2de
 
 COCOAPODS: 1.10.1
