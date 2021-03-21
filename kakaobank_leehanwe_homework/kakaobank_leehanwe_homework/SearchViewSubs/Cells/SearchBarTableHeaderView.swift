@@ -101,6 +101,9 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
     func resignTextInput() {
         self.searchBar.endEditing(true)
     }
+    func getFirstResponder() {
+        self.searchBar.becomeFirstResponder()
+    }
     
     func setTextToSearchBar(text: String) {
         self.searchBar.text = text

@@ -92,6 +92,8 @@ class SearchViewController: UIViewController {
     let presenter: SearchPresenter = SearchPresenter(service: SearchService())
     let titleSectionHeight: CGFloat = 60
     
+    let callNextPageBeforeOffset: CGFloat = 150
+    
     //MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -274,6 +276,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         case .autoComplete:
             break
         case .searched:
+            let offset = scrollView.contentOffset;
+            let bounds = scrollView.bounds;
+            let size = scrollView.contentSize;
+            let inset = scrollView.contentInset;
+            let y = offset.y + bounds.size.height - inset.bottom;
+            let h = size.height;
+            if y + self.callNextPageBeforeOffset >= h {
+                self.presenter.getNextPageData(completeHandler: { response in
+                    self.searchResultData += response
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }, failureHandler: { err in
+                    print("페이징 실패:\(err.localizedDescription)")
+                })
+            }
             break
         
         }
@@ -334,9 +352,15 @@ extension SearchViewController : SearchBarTableHeaderViewDelegate {
     }
     
     func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
-        self.autoCompleteArr = self.presenter.getAutoCompleteHistoryData(keyword: text)
-        self.currentState = .autoComplete
-        self.tableView.reloadData()
+        if text == "" {
+            self.currentState = .nonInputHistory
+            self.searchBarHeaderView?.getFirstResponder()
+        }
+        else {
+            self.autoCompleteArr = self.presenter.getAutoCompleteHistoryData(keyword: text)
+            self.currentState = .autoComplete
+            self.tableView.reloadData()
+        }
     }
     
     func searchCancelAction(_ view: SearchBarTableHeaderView) {

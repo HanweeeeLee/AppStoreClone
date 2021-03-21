@@ -15,7 +15,7 @@ class APIDefine {
     static let pageParamKey: String = "offset="
     
     static func simpleAPIURL(keyword: String, page: UInt, limit: UInt) -> String {
-        return self.baseURL + self.api + self.keywordParamKey + keyword + "&" + themeParam + "&" + limitParam + "\(limit)" + "&" + pageParamKey + "\(page)"
+        return self.baseURL + self.api + self.keywordParamKey + keyword + "&" + themeParam + "&" + limitParam + "\(limit)" + "&" + pageParamKey + "\(page*limit + 1)"
     }
 
 }

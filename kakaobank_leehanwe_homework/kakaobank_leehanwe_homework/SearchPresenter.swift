@@ -49,10 +49,14 @@ class SearchPresenter: SearchPresenterProtocol {
     
     func getNextPageData(completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ()) {
         if !isQuerying {
-            
-        }
-        else { //이미 쿼리중이라면
-            
+            self.isQuerying = true
+            search(keyword: self.currentSearchKeyword) { [weak self] (response) in
+                completeHandler(response)
+                self?.isQuerying = false
+            } failureHandler: { [weak self] (err) in
+                failureHandler(err)
+                self?.isQuerying = false
+            }
         }
     }
     
