@@ -46,6 +46,9 @@ class LocalizedMap {
     static let MAX_RATING = "max_rating"
     static let SHOW_ALL_REVIEW = "show_all_review"
     static let RATING_COUNT = "rating_count"
+    static let WRITE_REVIEW = "write_review"
+    static let HEL_APP = "hel_app"
+    static let RATING_TAP = "rating_tap"
 
     
 }

@@ -45,6 +45,8 @@
 		786479392607401900C93A95 /* DetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786479372607401900C93A95 /* DetailReviewTableViewCell.swift */; };
 		7864793A2607401900C93A95 /* DetailReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479382607401900C93A95 /* DetailReviewTableViewCell.xib */; };
 		7864797A26076B0900C93A95 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864797926076B0800C93A95 /* IntExtension.swift */; };
+		78647989260770E000C93A95 /* DetailReviewFSPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78647987260770E000C93A95 /* DetailReviewFSPagerViewCell.swift */; };
+		7864798A260770E000C93A95 /* DetailReviewFSPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78647988260770E000C93A95 /* DetailReviewFSPagerViewCell.xib */; };
 		789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E555F2605A8F800B8CBEF /* APIDefine.swift */; };
 		789E55642605AD8E00B8CBEF /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55632605AD8E00B8CBEF /* SearchService.swift */; };
 		789E556A2605AE0E00B8CBEF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E55692605AE0E00B8CBEF /* SearchData.swift */; };
@@ -129,6 +131,8 @@
 		786479372607401900C93A95 /* DetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		786479382607401900C93A95 /* DetailReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewTableViewCell.xib; sourceTree = "<group>"; };
 		7864797926076B0800C93A95 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		78647987260770E000C93A95 /* DetailReviewFSPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewFSPagerViewCell.swift; sourceTree = "<group>"; };
+		78647988260770E000C93A95 /* DetailReviewFSPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewFSPagerViewCell.xib; sourceTree = "<group>"; };
 		789E555F2605A8F800B8CBEF /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		789E55632605AD8E00B8CBEF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		789E55692605AE0E00B8CBEF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				786479142607395800C93A95 /* DetailRatingTableViewCell.xib */,
 				786479372607401900C93A95 /* DetailReviewTableViewCell.swift */,
 				786479382607401900C93A95 /* DetailReviewTableViewCell.xib */,
+				78647987260770E000C93A95 /* DetailReviewFSPagerViewCell.swift */,
+				78647988260770E000C93A95 /* DetailReviewFSPagerViewCell.xib */,
 				786479192607396500C93A95 /* DetailPrivacyTableViewCell.swift */,
 				7864791A2607396500C93A95 /* DetailPrivacyTableViewCell.xib */,
 				7864791F2607397700C93A95 /* DetailInfomationTableViewCell.swift */,
@@ -533,6 +539,7 @@
 				786478AC2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib in Resources */,
 				786479222607397700C93A95 /* DetailInfomationTableViewCell.xib in Resources */,
 				7864789E26072F1B00C93A95 /* DetailHeaderTableViewCell.xib in Resources */,
+				7864798A260770E000C93A95 /* DetailReviewFSPagerViewCell.xib in Resources */,
 				786479162607395800C93A95 /* DetailRatingTableViewCell.xib in Resources */,
 				78B58C1826049A5C006A0B11 /* LaunchScreen.storyboard in Resources */,
 				78B58C1526049A5C006A0B11 /* Assets.xcassets in Resources */,
@@ -656,6 +663,7 @@
 				78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */,
 				78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */,
 				78AA030C2606053E004960E1 /* SearchResultTableViewCell.swift in Sources */,
+				78647989260770E000C93A95 /* DetailReviewFSPagerViewCell.swift in Sources */,
 				786478F9260738B600C93A95 /* DetailPreViewCollectionViewCell.swift in Sources */,
 				786478E62607339100C93A95 /* DetailInfoCollectionSubView.swift in Sources */,
 				78B58D1A2604C015006A0B11 /* CommonDefine.swift in Sources */,

@@ -66,6 +66,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.register(UINib(nibName: "DetailContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTableViewCell")
         self.tableView.register(UINib(nibName: "DetailRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailRatingTableViewCell")
         self.tableView.register(UINib(nibName: "DetailReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReviewTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailInfomationTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomationTableViewCell")
         
     }
     
@@ -77,12 +78,20 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
 
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 8
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 7 {
+            return 3
+        }
+        else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             let cell: DetailHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderTableViewCell", for: indexPath) as! DetailHeaderTableViewCell
             cell.selectionStyle = .none
@@ -102,7 +111,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.infoData = self.searchResultData
             return cell
         case 4:
-            return UITableViewCell() //리뷰남기기
+            let cell: DetailReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailReviewTableViewCell", for: indexPath) as! DetailReviewTableViewCell
+            cell.selectionStyle = .none
+            return cell
+//            return UITableViewCell()
         case 5:
             let cell: DetailReleaseNoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailReleaseNoteTableViewCell", for: indexPath) as! DetailReleaseNoteTableViewCell
             cell.selectionStyle = .none
@@ -111,9 +123,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 6:
             return UITableViewCell() //데이터 수집 노가다
         case 7:
-            return UITableViewCell() //정보
-        case 8:
-            return UITableViewCell() //지원
+            let cell: DetailInfomationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomationTableViewCell", for: indexPath) as! DetailInfomationTableViewCell
+            cell.selectionStyle = .none
+            return cell
         default:
             return UITableViewCell()
         }

@@ -39,3 +39,6 @@
 "max_rating" = "(최고 5점)";
 "show_all_review" = "모두보기";
 "rating_count" = "%@개의 평가";
+"write_review" = "리뷰 작성";
+"hel_app" = "앱 지원";
+"rating_tap" = "탭하여 평가히기";
