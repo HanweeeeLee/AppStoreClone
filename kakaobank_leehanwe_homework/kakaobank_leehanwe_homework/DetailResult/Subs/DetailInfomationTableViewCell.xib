@@ -28,35 +28,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gax-jN-I8J">
-                        <rect key="frame" x="270" y="39" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="L7b-65-2cA"/>
-                            <constraint firstAttribute="height" constant="30" id="QP6-tU-Fv4"/>
-                        </constraints>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL8-dT-cPr">
-                        <rect key="frame" x="208" y="43.5" width="42" height="20.5"/>
+                        <rect key="frame" x="258" y="43.5" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gax-jN-I8J" firstAttribute="centerY" secondItem="Vhj-da-7nA" secondAttribute="centerY" id="0UY-4E-WgP"/>
-                    <constraint firstItem="gax-jN-I8J" firstAttribute="leading" secondItem="LL8-dT-cPr" secondAttribute="trailing" constant="20" id="1lh-oY-hvg"/>
                     <constraint firstItem="8H2-ej-J91" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Fmz-4W-kuJ"/>
                     <constraint firstItem="Vhj-da-7nA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="GMK-Bw-vcE"/>
                     <constraint firstItem="8H2-ej-J91" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Rji-Pl-msJ"/>
+                    <constraint firstAttribute="trailing" secondItem="LL8-dT-cPr" secondAttribute="trailing" constant="20" id="Wjw-WA-qJY"/>
                     <constraint firstItem="LL8-dT-cPr" firstAttribute="centerY" secondItem="Vhj-da-7nA" secondAttribute="centerY" id="aVH-5J-lLV"/>
                     <constraint firstItem="Vhj-da-7nA" firstAttribute="top" secondItem="8H2-ej-J91" secondAttribute="bottom" constant="10" id="rUf-Iu-4hB"/>
                     <constraint firstAttribute="bottom" secondItem="Vhj-da-7nA" secondAttribute="bottom" constant="10" id="tNI-PD-vLm"/>
-                    <constraint firstAttribute="trailing" secondItem="gax-jN-I8J" secondAttribute="trailing" constant="20" id="vHv-Dd-CuV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="button" destination="gax-jN-I8J" id="NGd-AU-shv"/>
                 <outlet property="contentsTitleLabel" destination="Vhj-da-7nA" id="Bwr-yZ-cU2"/>
                 <outlet property="infoLabel" destination="LL8-dT-cPr" id="65K-OC-9UT"/>
                 <outlet property="titleLabel" destination="8H2-ej-J91" id="hYw-fb-vTH"/>

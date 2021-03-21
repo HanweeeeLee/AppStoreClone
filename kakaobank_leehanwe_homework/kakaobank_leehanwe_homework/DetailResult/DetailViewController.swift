@@ -67,6 +67,9 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.register(UINib(nibName: "DetailRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailRatingTableViewCell")
         self.tableView.register(UINib(nibName: "DetailReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReviewTableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfomationTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomationTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailInfomation2TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation2TableViewCell")
+        self.tableView.register(UINib(nibName: "DetailInfomation3TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation3TableViewCell")
+        self.tableView.register(UINib(nibName: "DetailInfomation4TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation4TableViewCell")
         
     }
     
@@ -83,7 +86,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 7 {
-            return 3
+            return 9
         }
         else {
             return 1
@@ -123,9 +126,64 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 6:
             return UITableViewCell() //데이터 수집 노가다
         case 7:
-            let cell: DetailInfomationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomationTableViewCell", for: indexPath) as! DetailInfomationTableViewCell
-            cell.selectionStyle = .none
-            return cell
+            switch indexPath.row {
+            case 0:
+                let cell: DetailInfomationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomationTableViewCell", for: indexPath) as! DetailInfomationTableViewCell
+                cell.contentsTitleLabel.text = "제공자"
+                cell.infoLabel.text = self.searchResultData.sellerName
+                cell.selectionStyle = .none
+                return cell
+            case 1:
+                let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
+                cell.titleLabel.text = "크기"
+//                cell.contentsLabel.text = self.searchResultData.sellerName //todo 키: fileSizeBytes
+                cell.selectionStyle = .none
+                return cell
+            case 2:
+                let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "카테고리"
+                cell.contentsLabel.text = self.searchResultData.primaryGenreName
+                return cell
+            case 3:
+                let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "호환성"
+//                cell.contentsLabel.text = self.searchResultData.primaryGenreName //todo 키 minimumOsVersion
+                return cell
+            case 4:
+                let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "언어"
+                cell.contentsLabel.text = self.searchResultData.languageCodesISO2A[0]
+                return cell
+            case 5:
+                let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "연령등급"
+                cell.contentsLabel.text = self.searchResultData.contentAdvisoryRating
+                return cell
+            case 6:
+                let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "저작권"
+                cell.contentsLabel.text = self.searchResultData.sellerName
+                return cell
+            case 7:
+                let cell: DetailInfomation4TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation4TableViewCell", for: indexPath) as! DetailInfomation4TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "개발자 웹 사이트"
+                cell.imgView.image = UIImage(systemName: "safari")
+                return cell
+            case 8:
+                let cell: DetailInfomation4TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation4TableViewCell", for: indexPath) as! DetailInfomation4TableViewCell
+                cell.selectionStyle = .none
+                cell.titleLabel.text = "개인정보 처리방침"
+                cell.imgView.image = UIImage(systemName: "hand.raised.fill")
+                return cell
+            default:
+                return UITableViewCell()
+            }
         default:
             return UITableViewCell()
         }

@@ -37,6 +37,7 @@ class SearchPresenter: SearchPresenterProtocol {
     
     //MARK: function
     func search(keyword: String, completeHandler: @escaping ([SearchData]) -> (), failureHandler: @escaping (Error) -> ()) {
+        self.currentSearchPage = 1
         appendHistory(searched: keyword)
         self.currentSearchKeyword = keyword
         self.service.getData(keyword: self.currentSearchKeyword, page: self.currentSearchPage, limit: self.limit, completeHandler: { response in

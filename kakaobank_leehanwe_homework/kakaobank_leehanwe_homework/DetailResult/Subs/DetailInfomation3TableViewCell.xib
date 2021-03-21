@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DetailInfomation3TableViewCell" customModule="kakaobank_leehanwe_homework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUJ-Py-Gi6">
+                        <rect key="frame" x="20" y="10" width="42" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jn-ia-sAM">
+                        <rect key="frame" x="67" y="11.5" width="208" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TPn-VC-SwJ">
+                        <rect key="frame" x="280" y="17" width="20" height="10.5"/>
+                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Qav-C0-Xgb"/>
+                            <constraint firstAttribute="width" constant="20" id="mAO-zk-Cgu"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2Jn-ia-sAM" firstAttribute="centerY" secondItem="FUJ-Py-Gi6" secondAttribute="centerY" id="89y-gQ-fBf"/>
+                    <constraint firstItem="FUJ-Py-Gi6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JaZ-mo-rl0"/>
+                    <constraint firstItem="FUJ-Py-Gi6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="RPc-3X-tEk"/>
+                    <constraint firstAttribute="bottom" secondItem="FUJ-Py-Gi6" secondAttribute="bottom" constant="10" id="RXn-lf-pfW"/>
+                    <constraint firstItem="TPn-VC-SwJ" firstAttribute="centerY" secondItem="2Jn-ia-sAM" secondAttribute="centerY" id="YG9-hz-z1f"/>
+                    <constraint firstItem="2Jn-ia-sAM" firstAttribute="leading" secondItem="FUJ-Py-Gi6" secondAttribute="trailing" constant="5" id="ccs-KX-Ovo"/>
+                    <constraint firstAttribute="trailing" secondItem="TPn-VC-SwJ" secondAttribute="trailing" constant="20" id="drL-p6-Cj5"/>
+                    <constraint firstItem="TPn-VC-SwJ" firstAttribute="leading" secondItem="2Jn-ia-sAM" secondAttribute="trailing" constant="5" id="ji1-NB-MBl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentsLabel" destination="2Jn-ia-sAM" id="c7T-aT-GBG"/>
+                <outlet property="imgView" destination="TPn-VC-SwJ" id="ACT-AC-WG1"/>
+                <outlet property="titleLabel" destination="FUJ-Py-Gi6" id="Mxd-VE-GvS"/>
+            </connections>
+            <point key="canvasLocation" x="69.565217391304358" y="55.580357142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
