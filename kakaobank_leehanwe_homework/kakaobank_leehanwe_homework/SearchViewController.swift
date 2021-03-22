@@ -33,6 +33,7 @@ class SearchViewController: UIViewController {
                     break
                 case .nonInputHistory:
                     self.navigationController?.setNavigationBarHidden(true, animated: false)
+                    self.searchBarHeaderView?.getFirstResponder()
                     self.tableView.reloadData()
                     break
                 case .autoComplete:
@@ -44,6 +45,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
     var isShowingNavigationTitle: Bool = false {
         didSet {
             if oldValue != self.isShowingNavigationTitle {
@@ -64,6 +66,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
     var titleSectionEffectPercent: CGFloat = 0 {
         didSet {
             self.searchBarHeaderView?.setColorEffect(percent: self.titleSectionEffectPercent)
@@ -339,6 +342,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 break
             case .searched:
                 if let vc = DetailViewController.makeViewController(presenter: DetailPresenter(), infoData: self.searchResultData[indexPath.row]) {
+                    self.currentState = .searched
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 break
@@ -357,7 +361,6 @@ extension SearchViewController : SearchBarTableHeaderViewDelegate {
     func searchBarInputedText(_ view: SearchBarTableHeaderView, text: String) {
         if text == "" {
             self.currentState = .nonInputHistory
-            self.searchBarHeaderView?.getFirstResponder()
         }
         else {
             self.autoCompleteArr = self.presenter.getAutoCompleteHistoryData(keyword: text)

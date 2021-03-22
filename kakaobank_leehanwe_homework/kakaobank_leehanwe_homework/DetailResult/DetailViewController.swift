@@ -35,6 +35,13 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParent {
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+        }
+    }
+    
     //MARK: function
     
     static func makeViewController(presenter: DetailPresenter, infoData: SearchData) -> DetailViewController? {
