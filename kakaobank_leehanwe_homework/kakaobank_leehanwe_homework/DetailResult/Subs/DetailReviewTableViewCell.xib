@@ -67,7 +67,7 @@
                         <rect key="frame" x="0.0" y="50" width="388" height="200"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="1TM-ZE-MVc"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="1TM-ZE-MVc"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5r-6w-8SS">

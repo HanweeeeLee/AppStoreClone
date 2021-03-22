@@ -136,7 +136,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
                 cell.titleLabel.text = "크기"
-//                cell.contentsLabel.text = self.searchResultData.sellerName //todo 키: fileSizeBytes
+                cell.contentsLabel.text = CommonUtil.getMBFromByte(byte: Int(self.searchResultData.fileSizeBytes) ?? 0) + "MB"
                 cell.selectionStyle = .none
                 return cell
             case 2:
@@ -149,7 +149,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
                 cell.selectionStyle = .none
                 cell.titleLabel.text = "호환성"
-//                cell.contentsLabel.text = self.searchResultData.primaryGenreName //todo 키 minimumOsVersion
+                if CommonUtil.isUsableAppFromVersion(mySystemVersion: UIDevice.current.systemVersion, requiredVersion: self.searchResultData.minimumOsVersion) {
+                    cell.contentsLabel.text = "이 iPhone와(과) 호환"
+                }
+                else {
+                    cell.contentsLabel.text = "이 iPhone와(과) 호환불가"
+                }
                 return cell
             case 4:
                 let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell

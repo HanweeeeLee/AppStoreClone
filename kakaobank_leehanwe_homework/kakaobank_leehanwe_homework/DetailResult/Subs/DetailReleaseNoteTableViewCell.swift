@@ -23,7 +23,7 @@ class DetailReleaseNoteTableViewCell: UITableViewCell {
             guard let info = self.infoData else { return }
             self.versionLabel.text = info.version
             self.contentsLabel.text = info.releaseNotes
-//            latestUpdateDateLabel.text = todo 
+            self.latestUpdateDateLabel.text = CommonUtil.getWhenReleaseDateKor(currentDate: Date(), releaseDate: info.currentVersionReleaseDate) 
         }
     }
     
