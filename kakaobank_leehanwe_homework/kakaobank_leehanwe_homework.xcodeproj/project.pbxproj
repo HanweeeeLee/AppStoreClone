@@ -24,8 +24,6 @@
 		786478AC2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786478AA2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib */; };
 		786478DF2607333700C93A95 /* DetailInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478DD2607333700C93A95 /* DetailInfoCollectionViewCell.swift */; };
 		786478E02607333700C93A95 /* DetailInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786478DE2607333700C93A95 /* DetailInfoCollectionViewCell.xib */; };
-		786478F02607386500C93A95 /* DetailPreViewSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478EF2607386500C93A95 /* DetailPreViewSubView.swift */; };
-		786478F42607387F00C93A95 /* DetailPreViewSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786478F32607387F00C93A95 /* DetailPreViewSubView.xib */; };
 		786478F9260738B600C93A95 /* DetailPreViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478F7260738B600C93A95 /* DetailPreViewCollectionViewCell.swift */; };
 		786478FA260738B600C93A95 /* DetailPreViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786478F8260738B600C93A95 /* DetailPreViewCollectionViewCell.xib */; };
 		786478FF2607390500C93A95 /* DetailPreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786478FD2607390500C93A95 /* DetailPreViewTableViewCell.swift */; };
@@ -114,8 +112,6 @@
 		786478AA2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReleaseNoteTableViewCell.xib; sourceTree = "<group>"; };
 		786478DD2607333700C93A95 /* DetailInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		786478DE2607333700C93A95 /* DetailInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoCollectionViewCell.xib; sourceTree = "<group>"; };
-		786478EF2607386500C93A95 /* DetailPreViewSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPreViewSubView.swift; sourceTree = "<group>"; };
-		786478F32607387F00C93A95 /* DetailPreViewSubView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPreViewSubView.xib; sourceTree = "<group>"; };
 		786478F7260738B600C93A95 /* DetailPreViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPreViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		786478F8260738B600C93A95 /* DetailPreViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPreViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		786478FD2607390500C93A95 /* DetailPreViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPreViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,8 +232,6 @@
 				786478DE2607333700C93A95 /* DetailInfoCollectionViewCell.xib */,
 				786478FD2607390500C93A95 /* DetailPreViewTableViewCell.swift */,
 				786478FE2607390500C93A95 /* DetailPreViewTableViewCell.xib */,
-				786478EF2607386500C93A95 /* DetailPreViewSubView.swift */,
-				786478F32607387F00C93A95 /* DetailPreViewSubView.xib */,
 				786478F7260738B600C93A95 /* DetailPreViewCollectionViewCell.swift */,
 				786478F8260738B600C93A95 /* DetailPreViewCollectionViewCell.xib */,
 				786478A92607326500C93A95 /* DetailReleaseNoteTableViewCell.swift */,
@@ -562,7 +556,6 @@
 				78AA030D2606053E004960E1 /* SearchResultTableViewCell.xib in Resources */,
 				786479B926078F9C00C93A95 /* DetailInfomation4TableViewCell.xib in Resources */,
 				786479082607393200C93A95 /* DetailContentsTableViewCell.xib in Resources */,
-				786478F42607387F00C93A95 /* DetailPreViewSubView.xib in Resources */,
 				786479282607398B00C93A95 /* DetailSupportTableViewCell.xib in Resources */,
 				7864793A2607401900C93A95 /* DetailReviewTableViewCell.xib in Resources */,
 				786478A62607324E00C93A95 /* DetailInfoCollectionTableViewCell.xib in Resources */,
@@ -693,7 +686,6 @@
 				786478AB2607326500C93A95 /* DetailReleaseNoteTableViewCell.swift in Sources */,
 				7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */,
 				78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */,
-				786478F02607386500C93A95 /* DetailPreViewSubView.swift in Sources */,
 				7864797A26076B0900C93A95 /* IntExtension.swift in Sources */,
 				7864789D26072F1A00C93A95 /* DetailHeaderTableViewCell.swift in Sources */,
 				786479AC26078F7800C93A95 /* DetailInfomation2TableViewCell.swift in Sources */,

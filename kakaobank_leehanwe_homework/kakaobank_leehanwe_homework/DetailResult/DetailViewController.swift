@@ -69,7 +69,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         
         self.tableView.register(UINib(nibName: "DetailHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailHeaderTableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfoCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfoCollectionTableViewCell")
-//        self.tableView.register(UINib(nibName: "DetailPreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailPreViewTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailPreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailPreViewTableViewCell")
         self.tableView.register(UINib(nibName: "DetailReleaseNoteTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReleaseNoteTableViewCell")
         self.tableView.register(UINib(nibName: "DetailContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTableViewCell")
         self.tableView.register(UINib(nibName: "DetailRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailRatingTableViewCell")
@@ -90,10 +90,10 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 9
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 7 {
+        if section == 8 {
             return 9
         }
         else {
@@ -121,23 +121,28 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         case 3:
+            let cell: DetailPreViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailPreViewTableViewCell", for: indexPath) as! DetailPreViewTableViewCell
+            cell.selectionStyle = .none
+            cell.delegate = self
+            cell.infoData = self.searchResultData
+            return cell
+        case 4:
             let cell: DetailRatingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailRatingTableViewCell", for: indexPath) as! DetailRatingTableViewCell
             cell.selectionStyle = .none
             cell.infoData = self.searchResultData
             return cell
-        case 4:
+        case 5:
             let cell: DetailReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailReviewTableViewCell", for: indexPath) as! DetailReviewTableViewCell
             cell.selectionStyle = .none
             return cell
-//            return UITableViewCell()
-        case 5:
+        case 6:
             let cell: DetailReleaseNoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailReleaseNoteTableViewCell", for: indexPath) as! DetailReleaseNoteTableViewCell
             cell.selectionStyle = .none
             cell.infoData = self.searchResultData
             return cell
-        case 6:
-            return UITableViewCell() //데이터 수집 노가다
         case 7:
+            return UITableViewCell() //데이터 수집 노가다
+        case 8:
             switch indexPath.row {
             case 0:
                 let cell: DetailInfomationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomationTableViewCell", for: indexPath) as! DetailInfomationTableViewCell
@@ -228,4 +233,7 @@ extension DetailViewController: DetailViewCommonProtocol {
 extension DetailViewController: DetailContentsTableViewCellDelegate {
 }
 extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
+}
+
+extension DetailViewController: DetailPreViewTableViewCellDelegate {
 }

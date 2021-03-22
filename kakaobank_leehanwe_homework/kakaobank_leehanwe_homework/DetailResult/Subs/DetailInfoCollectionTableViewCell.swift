@@ -182,15 +182,15 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
         case 0: //평가 및 리뷰로 이동
-            self.delegate?.moveTo(indexPath: IndexPath(row: 0, section: 3))
+            self.delegate?.moveTo(indexPath: IndexPath(row: 0, section: 4))
             break
         case 1: //연령으로 이동
-            self.delegate?.moveTo(indexPath: IndexPath(row: 5, section: 7))
+            self.delegate?.moveTo(indexPath: IndexPath(row: 5, section: 8))
             break
         case 2:
             break
         case 3: //언어로 이동
-            self.delegate?.moveTo(indexPath: IndexPath(row: 4, section: 7))
+            self.delegate?.moveTo(indexPath: IndexPath(row: 4, section: 8))
             break
         default:
             break
