@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailViewCommonProtocol: class {
     func reloadTableView()
+    func moveTo(indexPath: IndexPath)
 }
 
 class DetailViewController: UIViewController, MVPViewControllerProtocol {
@@ -67,7 +68,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.dataSource = self
         
         self.tableView.register(UINib(nibName: "DetailHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailHeaderTableViewCell")
-//        self.tableView.register(UINib(nibName: "DetailInfoCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfoCollectionTableViewCell")
+        self.tableView.register(UINib(nibName: "DetailInfoCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfoCollectionTableViewCell")
 //        self.tableView.register(UINib(nibName: "DetailPreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailPreViewTableViewCell")
         self.tableView.register(UINib(nibName: "DetailReleaseNoteTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReleaseNoteTableViewCell")
         self.tableView.register(UINib(nibName: "DetailContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTableViewCell")
@@ -108,7 +109,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.infoData = self.searchResultData
             return cell
         case 1:
-            return UITableViewCell() //콜렉션천국
+            let cell: DetailInfoCollectionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfoCollectionTableViewCell", for: indexPath) as! DetailInfoCollectionTableViewCell
+            cell.selectionStyle = .none
+            cell.delegate = self
+            cell.infoData = self.searchResultData
+            return cell
         case 2:
             let cell: DetailContentsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailContentsTableViewCell", for: indexPath) as! DetailContentsTableViewCell
             cell.selectionStyle = .none
@@ -210,6 +215,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailViewController: DetailViewCommonProtocol {
+    func moveTo(indexPath: IndexPath) {
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
     func reloadTableView() {
         self.tableView.reloadData()
     }
@@ -217,4 +226,6 @@ extension DetailViewController: DetailViewCommonProtocol {
 
 
 extension DetailViewController: DetailContentsTableViewCellDelegate {
+}
+extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
 }
