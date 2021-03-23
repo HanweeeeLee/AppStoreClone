@@ -83,6 +83,10 @@
 		78E16FCD2609EC4B00E92E17 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FCC2609EC4B00E92E17 /* UIViewExtension.swift */; };
 		78E16FD2260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E16FD0260A006900E92E17 /* DetaiPhonePreViewTableViewCell.xib */; };
 		78E16FD3260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FD1260A006900E92E17 /* DetaiPhonePreViewTableViewCell.swift */; };
+		78E16FDA260A0FF200E92E17 /* MoreAgeGradeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FD8260A0FF100E92E17 /* MoreAgeGradeTableViewCell.swift */; };
+		78E16FDB260A0FF200E92E17 /* MoreAgeGradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E16FD9260A0FF100E92E17 /* MoreAgeGradeTableViewCell.xib */; };
+		78E16FE0260A100300E92E17 /* MoreCompatibilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FDE260A100300E92E17 /* MoreCompatibilityTableViewCell.swift */; };
+		78E16FE1260A100300E92E17 /* MoreCompatibilityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E16FDF260A100300E92E17 /* MoreCompatibilityTableViewCell.xib */; };
 		841D3D3487E09D6E2CB263A1 /* Pods_kakaobank_leehanwe_homeworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65947E89289FE71B1F4784A /* Pods_kakaobank_leehanwe_homeworkTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +184,10 @@
 		78E16FCC2609EC4B00E92E17 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		78E16FD0260A006900E92E17 /* DetaiPhonePreViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetaiPhonePreViewTableViewCell.xib; sourceTree = "<group>"; };
 		78E16FD1260A006900E92E17 /* DetaiPhonePreViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetaiPhonePreViewTableViewCell.swift; sourceTree = "<group>"; };
+		78E16FD8260A0FF100E92E17 /* MoreAgeGradeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAgeGradeTableViewCell.swift; sourceTree = "<group>"; };
+		78E16FD9260A0FF100E92E17 /* MoreAgeGradeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreAgeGradeTableViewCell.xib; sourceTree = "<group>"; };
+		78E16FDE260A100300E92E17 /* MoreCompatibilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCompatibilityTableViewCell.swift; sourceTree = "<group>"; };
+		78E16FDF260A100300E92E17 /* MoreCompatibilityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCompatibilityTableViewCell.xib; sourceTree = "<group>"; };
 		9479F30A6ECD153AABFE95AA /* Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0F524D9C04C6565B8BC83A3 /* Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C674223D675D0D29B7F3BCFB /* Pods-kakaobank_leehanwe_homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homework.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homework/Pods-kakaobank_leehanwe_homework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +272,10 @@
 				786479B726078F9C00C93A95 /* DetailInfomation4TableViewCell.xib */,
 				786479252607398B00C93A95 /* DetailSupportTableViewCell.swift */,
 				786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */,
+				78E16FD8260A0FF100E92E17 /* MoreAgeGradeTableViewCell.swift */,
+				78E16FD9260A0FF100E92E17 /* MoreAgeGradeTableViewCell.xib */,
+				78E16FDE260A100300E92E17 /* MoreCompatibilityTableViewCell.swift */,
+				78E16FDF260A100300E92E17 /* MoreCompatibilityTableViewCell.xib */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -574,9 +586,11 @@
 				7864791C2607396500C93A95 /* DetailPrivacyTableViewCell.xib in Resources */,
 				78B58D262604C0DA006A0B11 /* InfoPlist.strings in Resources */,
 				78B58C1326049A5B006A0B11 /* Main.storyboard in Resources */,
+				78E16FDB260A0FF200E92E17 /* MoreAgeGradeTableViewCell.xib in Resources */,
 				786479002607390500C93A95 /* DetailPreViewTableViewCell.xib in Resources */,
 				786479B326078F8D00C93A95 /* DetailInfomation3TableViewCell.xib in Resources */,
 				786478E02607333700C93A95 /* DetailInfoCollectionViewCell.xib in Resources */,
+				78E16FE1260A100300E92E17 /* MoreCompatibilityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +714,7 @@
 				78B58C0E26049A5B006A0B11 /* SceneDelegate.swift in Sources */,
 				7864797A26076B0900C93A95 /* IntExtension.swift in Sources */,
 				7864789D26072F1A00C93A95 /* DetailHeaderTableViewCell.swift in Sources */,
+				78E16FDA260A0FF200E92E17 /* MoreAgeGradeTableViewCell.swift in Sources */,
 				786479AC26078F7800C93A95 /* DetailInfomation2TableViewCell.swift in Sources */,
 				789E55602605A8F800B8CBEF /* APIDefine.swift in Sources */,
 				78BC2FE52604E678002D33B7 /* SearchPresenter.swift in Sources */,
@@ -712,6 +727,7 @@
 				786478DF2607333700C93A95 /* DetailInfoCollectionViewCell.swift in Sources */,
 				786478A52607324E00C93A95 /* DetailInfoCollectionTableViewCell.swift in Sources */,
 				78AA03172606158A004960E1 /* UIImageViewExtension.swift in Sources */,
+				78E16FE0260A100300E92E17 /* MoreCompatibilityTableViewCell.swift in Sources */,
 				78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */,
 				78AA032126062BF4004960E1 /* CommonUtil.swift in Sources */,
 				786479B826078F9C00C93A95 /* DetailInfomation4TableViewCell.swift in Sources */,

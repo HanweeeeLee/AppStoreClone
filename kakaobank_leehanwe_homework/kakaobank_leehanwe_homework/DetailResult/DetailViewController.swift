@@ -8,6 +8,7 @@
 import UIKit
 
 protocol DetailViewCommonProtocol: class {
+    func reloadTableView(indexPath: IndexPath)
     func reloadTableView()
     func moveTo(indexPath: IndexPath)
 }
@@ -32,6 +33,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     var iconImg: UIImage? = nil
     
     var previewMode: PreviewMode = .iPhone
+    var isMoreCompatibility: Bool = false
+    var isMoreAgeGrade: Bool = false
     
     //MARK: lifeCycle
     
@@ -90,8 +93,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.register(UINib(nibName: "DetailInfomation2TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation2TableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfomation3TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation3TableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfomation4TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation4TableViewCell")
-        
-        
+        self.tableView.register(UINib(nibName: "MoreAgeGradeTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreAgeGradeTableViewCell")
+        self.tableView.register(UINib(nibName: "MoreCompatibilityTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreCompatibilityTableViewCell")
         
     }
     
@@ -208,6 +211,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             }
             else {
                 let cell: DetaiPhonePreViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetaiPhonePreViewTableViewCell", for: indexPath) as! DetaiPhonePreViewTableViewCell
+                cell.indexPath = indexPath
                 cell.selectionStyle = .none
                 cell.infoData = self.searchResultData
                 cell.delegate = self
@@ -250,16 +254,24 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.contentsLabel.text = self.searchResultData.primaryGenreName
                 return cell
             case 3:
-                let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
-                cell.selectionStyle = .none
-                cell.titleLabel.text = "호환성"
-                if CommonUtil.isUsableAppFromVersion(mySystemVersion: UIDevice.current.systemVersion, requiredVersion: self.searchResultData.minimumOsVersion) {
-                    cell.contentsLabel.text = "이 iPhone와(과) 호환"
+                if isMoreCompatibility {//todo
+                    let cell: MoreCompatibilityTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MoreCompatibilityTableViewCell", for: indexPath) as! MoreCompatibilityTableViewCell
+                    cell.selectionStyle = .none
+                    cell.osLabel.text = self.searchResultData.minimumOsVersion + " 이상 필요."
+                    return cell
                 }
                 else {
-                    cell.contentsLabel.text = "이 iPhone와(과) 호환불가"
+                    let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
+                    cell.selectionStyle = .none
+                    cell.titleLabel.text = "호환성"
+                    if CommonUtil.isUsableAppFromVersion(mySystemVersion: UIDevice.current.systemVersion, requiredVersion: self.searchResultData.minimumOsVersion) {
+                        cell.contentsLabel.text = "이 iPhone와(과) 호환"
+                    }
+                    else {
+                        cell.contentsLabel.text = "이 iPhone와(과) 호환불가"
+                    }
+                    return cell
                 }
-                return cell
             case 4:
                 let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
                 cell.selectionStyle = .none
@@ -267,11 +279,19 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.contentsLabel.text = self.searchResultData.languageCodesISO2A[0]
                 return cell
             case 5:
-                let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
-                cell.selectionStyle = .none
-                cell.titleLabel.text = "연령등급"
-                cell.contentsLabel.text = self.searchResultData.contentAdvisoryRating
-                return cell
+                if self.isMoreAgeGrade {
+                    let cell: MoreAgeGradeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MoreAgeGradeTableViewCell", for: indexPath) as! MoreAgeGradeTableViewCell
+                    cell.selectionStyle = .none
+                    cell.ageLabel.text = self.searchResultData.contentAdvisoryRating
+                    return cell
+                }
+                else {
+                    let cell: DetailInfomation3TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation3TableViewCell", for: indexPath) as! DetailInfomation3TableViewCell
+                    cell.selectionStyle = .none
+                    cell.titleLabel.text = "연령등급"
+                    cell.contentsLabel.text = self.searchResultData.contentAdvisoryRating
+                    return cell
+                }
             case 6:
                 let cell: DetailInfomation2TableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomation2TableViewCell", for: indexPath) as! DetailInfomation2TableViewCell
                 cell.selectionStyle = .none
@@ -302,6 +322,16 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 8 {
+            if indexPath.row == 5 && !self.isMoreAgeGrade {
+                self.isMoreAgeGrade = true
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+            else if indexPath.row == 3 && !self.isMoreCompatibility {
+                self.isMoreCompatibility = true
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -318,8 +348,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailViewController: DetailViewCommonProtocol {
+    
     func moveTo(indexPath: IndexPath) {
         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
+    func reloadTableView(indexPath: IndexPath) {
+        self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     func reloadTableView() {

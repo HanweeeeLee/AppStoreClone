@@ -136,14 +136,13 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
                 cell.start4ImgView.image = UIImage(systemName: "star")
                 cell.start5ImgView.image = UIImage(systemName: "star")
             }
-            
+            cell.lineView.isHidden = true
             break
         case 1:
             cell.type = .string
             guard let info = self.infoData else {
                 return cell
             }
-            cell.lineView.isHidden = true
             cell.topLabel.text = "연령"
             cell.centerLabel.text = info.contentAdvisoryRating
             cell.bottomLabel.text = "세"

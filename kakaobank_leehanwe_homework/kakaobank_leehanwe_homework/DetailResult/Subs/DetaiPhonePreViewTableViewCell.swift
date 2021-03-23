@@ -40,7 +40,9 @@ class DetaiPhonePreViewTableViewCell: UITableViewCell {
         }
     }
     
-    var delegate: DetaiPhonePreViewTableViewCellDelegate?
+    weak var delegate: DetaiPhonePreViewTableViewCellDelegate?
+    
+    var indexPath: IndexPath? = nil
     
     //MARK: lifeCycle
     
@@ -67,7 +69,10 @@ class DetaiPhonePreViewTableViewCell: UITableViewCell {
     //MARK: action
     @IBAction func showIPadPreviewAction(_ sender: Any) {
         self.delegate?.switchPreviewMode()
-        self.delegate?.reloadTableView()
+        guard let path = self.indexPath else {
+            return
+        }
+        self.delegate?.reloadTableView(indexPath: path)
     }
     
 }
