@@ -38,5 +38,9 @@ extension UIView {
         slidePushTransition.startProgress = 0.8
         self.layer.add(slidePushTransition, forKey: "slidePushTransition")
     }
+    
+    func removeAllSubview() {
+        self.subviews.forEach({ $0.removeFromSuperview() })
+    }
 }
 

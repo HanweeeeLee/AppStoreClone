@@ -36,11 +36,13 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        hideLargeTitle()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if self.isMovingFromParent {
+            showLargeTitle()
             self.navigationController?.setNavigationBarHidden(true, animated: false)
         }
     }
@@ -83,6 +85,30 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         
     }
     
+    func showLargeTitle() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = LocalizedMap.TITLE_SEARCH_VIEW_CONTROLLER.localized
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        let imageView = UIImageView(image: UIImage(systemName: "person.circle"))
+        self.navigationController?.navigationBar.addSubview(imageView)
+        imageView.layer.zPosition = -1000
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.rightAnchor.constraint(equalTo: self.navigationController!.navigationBar.rightAnchor, constant: -20),
+            imageView.bottomAnchor.constraint(equalTo: self.navigationController!.navigationBar.bottomAnchor, constant: -15),
+            imageView.heightAnchor.constraint(equalToConstant: 30),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            ])
+    }
+    
+    func hideLargeTitle() {
+        navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.removeAllSubview()
+    }
+    
     func showNavigationIcons() {
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
@@ -109,12 +135,6 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         })
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.downloadBtnClicked(_:)))
         downloadView.addGestureRecognizer(tapGesture)
-        
-//        let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
-//        dummyView.backgroundColor = .clear
-//        let leftBarBtn = UIBarButtonItem(customView: dummyView)
-//        self.navigationItem.leftBarButtonItem = leftBarBtn
-        
     }
     
     func hideNavigationIcons() {

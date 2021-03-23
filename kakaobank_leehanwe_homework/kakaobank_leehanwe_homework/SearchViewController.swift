@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class SearchViewController: UIViewController {
     //MARK: State Enum
@@ -46,33 +47,6 @@ class SearchViewController: UIViewController {
         }
     }
     
-    var isShowingNavigationTitle: Bool = false {
-        didSet {
-            if oldValue != self.isShowingNavigationTitle {
-                if self.isShowingNavigationTitle {
-                    let fadeTextAnimation = CATransition()
-                    fadeTextAnimation.duration = 0.3
-                    fadeTextAnimation.type = .fade
-                    navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
-                    navigationItem.title = LocalizedMap.TITLE_SEARCH_VIEW_CONTROLLER.localized
-                }
-                else {
-                    let fadeTextAnimation = CATransition()
-                    fadeTextAnimation.duration = 0.3
-                    fadeTextAnimation.type = .fade
-                    navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
-                    navigationItem.title = ""
-                }
-            }
-        }
-    }
-    
-    var titleSectionEffectPercent: CGFloat = 0 {
-        didSet {
-            self.searchBarHeaderView?.setColorEffect(percent: self.titleSectionEffectPercent)
-        }
-    }
-    
     //MARK: data
     
     var searchResultData: [SearchData] = [] {
@@ -93,7 +67,6 @@ class SearchViewController: UIViewController {
     weak var searchBarHeaderView: SearchBarTableHeaderView? = nil
     
     let presenter: SearchPresenter = SearchPresenter(service: SearchService())
-    let titleSectionHeight: CGFloat = 60
     
     let callNextPageBeforeOffset: CGFloat = 150
     
@@ -111,7 +84,6 @@ class SearchViewController: UIViewController {
     func initUI() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "SearchTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTitleTableViewCell")
         self.tableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchHistoryTableViewCell")
         self.tableView.register(UINib(nibName: "SearchAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchAutoCompleteTableViewCell")
         self.tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
@@ -124,7 +96,7 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
-        
+        showLargeTitle()
     }
     
     func search(text: String) {
@@ -142,6 +114,25 @@ class SearchViewController: UIViewController {
                 self?.present(alert, animated: false, completion: nil)
             }
         })
+    }
+    
+    func showLargeTitle() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = LocalizedMap.TITLE_SEARCH_VIEW_CONTROLLER.localized
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        let imageView = UIImageView(image: UIImage(systemName: "person.circle"))
+        self.navigationController?.navigationBar.addSubview(imageView)
+        imageView.layer.zPosition = -1000
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.rightAnchor.constraint(equalTo: self.navigationController!.navigationBar.rightAnchor, constant: -20),
+            imageView.bottomAnchor.constraint(equalTo: self.navigationController!.navigationBar.bottomAnchor, constant: -15),
+            imageView.heightAnchor.constraint(equalToConstant: 30),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            ])
     }
     
     //MARK: action
@@ -209,7 +200,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         var returnValue: CGFloat = 0
         switch indexPath.section {
         case 0:
-            returnValue = self.titleSectionHeight
             break
         case 1:
             if currentState == .searched {
@@ -228,9 +218,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell: SearchTitleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SearchTitleTableViewCell", for: indexPath) as! SearchTitleTableViewCell
-            cell.selectionStyle = .none
-            return cell
+            return UITableViewCell()
         case 1:
             switch self.currentState {
             case .history:
@@ -265,14 +253,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         self.searchBarHeaderView?.resignTextInput()
         switch self.currentState {
         case .history:
-            if scrollView.contentOffset.y >= self.titleSectionHeight {
-                self.isShowingNavigationTitle = true
-                self.titleSectionEffectPercent = 1
-            }
-            else {
-                self.isShowingNavigationTitle = false
-                self.titleSectionEffectPercent = scrollView.contentOffset.y/titleSectionHeight
-            }
             break
         case .nonInputHistory:
             break
@@ -303,15 +283,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         switch self.currentState {
         case .history:
-            if scrollView.contentOffset.y > self.titleSectionHeight {
-                self.isShowingNavigationTitle = true
-            }
-            else if self.titleSectionHeight > scrollView.contentOffset.y && scrollView.contentOffset.y > self.titleSectionHeight/2 {
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
-            }
-            else {
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            }
             break
         case .nonInputHistory:
             break
