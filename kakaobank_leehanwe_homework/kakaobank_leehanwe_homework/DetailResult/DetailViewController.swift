@@ -24,6 +24,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     var presenter: DetailPresenter!
     var searchResultData: SearchData!
     
+    var iconImg: UIImage? = nil
+    
     //MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -81,7 +83,54 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         
     }
     
+    func showNavigationIcons() {
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        imageView.downloadOrCachedImage(urlString: self.searchResultData.icon60)
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds = true
+        navigationItem.titleView = imageView
+        imageView.slidePush(direction: .fromTop, completeHandler: {
+        })
+        
+        let downloadView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+        downloadView.backgroundColor = UIColor(red: 51/255, green: 102/255, blue: 1, alpha: 1)
+        downloadView.layer.cornerRadius = 10
+        let rightBarBtn = UIBarButtonItem(customView: downloadView)
+        let downloadLabel = UILabel()
+        downloadView.addSubview(downloadLabel)
+        downloadLabel.frame = CGRect(x: downloadView.frame.minX, y: downloadView.frame.minY, width: downloadView.frame.maxX, height: downloadView.frame.maxY)
+        downloadLabel.text = "받기"
+        downloadLabel.textAlignment = .center
+        downloadLabel.textColor = .white
+        self.navigationItem.rightBarButtonItem = rightBarBtn
+        downloadView.slidePush(direction: .fromTop, completeHandler: {
+        })
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.downloadBtnClicked(_:)))
+        downloadView.addGestureRecognizer(tapGesture)
+        
+//        let dummyView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
+//        dummyView.backgroundColor = .clear
+//        let leftBarBtn = UIBarButtonItem(customView: dummyView)
+//        self.navigationItem.leftBarButtonItem = leftBarBtn
+        
+    }
+    
+    func hideNavigationIcons() {
+        navigationItem.titleView?.fadeOut(duration: 0.2, completeHandler: { [weak self] in
+            self?.navigationItem.titleView = nil
+        })
+        navigationItem.rightBarButtonItem?.customView?.fadeOut(duration: 0.2, completeHandler: {
+            self.navigationItem.rightBarButtonItem?.customView = nil
+        })
+    }
+    
     //MARK: action
+    
+    @objc func downloadBtnClicked(_ recognizer: UITapGestureRecognizer) {
+        print("다운로드 버튼 눌림")
+    }
     
    
 
@@ -215,6 +264,17 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            showNavigationIcons()
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            hideNavigationIcons()
+        }
     }
     
 }
