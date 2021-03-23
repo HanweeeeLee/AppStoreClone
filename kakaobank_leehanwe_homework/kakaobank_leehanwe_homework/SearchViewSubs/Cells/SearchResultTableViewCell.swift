@@ -53,7 +53,7 @@ class SearchResultTableViewCell: UITableViewCell {
                 self?.appNameLabel.text = info.trackName
                 self?.appSubTitleLabel.text = info.trackCensoredName
                 self?.makeStartImg(rating: info.averageUserRating)
-                self?.downloadCntLabel.text = CommonUtil.over10000Convertor(originValue: UInt(info.userRatingCount), keyword: "만")
+                self?.downloadCntLabel.text = CommonUtil.over1000ConvertorKor(originValue: UInt(info.userRatingCount))
             }
         }
     }

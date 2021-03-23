@@ -16,13 +16,14 @@ class CommonUtilTests: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testConvertUtil() throws {
-        let converted1: String = CommonUtil.over10000Convertor(originValue: 21000, keyword: "만")
-        XCTAssertEqual(converted1, "2.1만")
-        let converted2: String = CommonUtil.over10000Convertor(originValue: 20000, keyword: "만")
-        XCTAssertEqual(converted2, "2만")
-        let converted3: String = CommonUtil.over10000Convertor(originValue: 10001000, keyword: "만")
-        XCTAssertEqual(converted3, "1000만")
+    func testFunctestOver1000Convert() throws {
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 1100), "1.1천")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 1000), "1천")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 100), "100")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 1001000), "100만")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 1010000), "101만")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 10000), "1만")
+        XCTAssertEqual(CommonUtil.over1000ConvertorKor(originValue: 11000), "1.1만")
     }
 
     

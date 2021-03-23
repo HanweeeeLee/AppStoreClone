@@ -64,7 +64,7 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
             guard let info = self.infoData else {
                 return cell
             }
-            cell.topLabel.text = CommonUtil.over10000Convertor(originValue: UInt(info.userRatingCount), keyword: "만") + "개의 평가"
+            cell.topLabel.text = CommonUtil.over1000ConvertorKor(originValue: UInt(info.userRatingCount)) + "개의 평가"
             cell.centerLabel.text = String(format: "%.1f",  info.averageUserRating)
             if info.averageUserRating == 5 {
                 cell.start1ImgView.image = UIImage(systemName: "star.fill")

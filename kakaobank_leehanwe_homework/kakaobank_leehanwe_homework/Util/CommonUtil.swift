@@ -8,7 +8,7 @@
 import UIKit
 
 class CommonUtil: NSObject {
-    static func over10000Convertor(originValue: UInt, keyword: String) -> String {
+    static func over1000ConvertorKor(originValue: UInt) -> String {
         var returnValue: String = ""
         if originValue >= 10000 {
             let divied = originValue/10000
@@ -20,7 +20,17 @@ class CommonUtil: NSObject {
                     returnValue = returnValue + "." + "\(restStringArr[0])"
                 }
             }
-            returnValue = returnValue + keyword
+            returnValue = returnValue + "만"
+        }
+        else if originValue >= 1000 {
+            let divied = originValue/1000
+            returnValue = "\(divied)"
+            let rest = originValue%1000
+            if rest >= 100 {
+                let restStringArr = Array("\(rest)")
+                returnValue = returnValue + "." + "\(restStringArr[0])"
+            }
+            returnValue = returnValue + "천"
         }
         else {
             returnValue = "\(originValue)"
