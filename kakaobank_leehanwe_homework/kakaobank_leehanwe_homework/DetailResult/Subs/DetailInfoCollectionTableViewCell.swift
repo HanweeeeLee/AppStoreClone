@@ -184,12 +184,12 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
             self.delegate?.moveTo(indexPath: IndexPath(row: 0, section: 4))
             break
         case 1: //연령으로 이동
-            self.delegate?.moveTo(indexPath: IndexPath(row: 5, section: 8))
+            self.delegate?.moveTo(indexPath: IndexPath(row: 5, section: 7))
             break
         case 2:
             break
         case 3: //언어로 이동
-            self.delegate?.moveTo(indexPath: IndexPath(row: 4, section: 8))
+            self.delegate?.moveTo(indexPath: IndexPath(row: 4, section: 7))
             break
         default:
             break

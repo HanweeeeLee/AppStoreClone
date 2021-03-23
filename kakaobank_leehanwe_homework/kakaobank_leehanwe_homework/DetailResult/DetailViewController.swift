@@ -172,10 +172,10 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 9
+        return 8
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 8 {
+        if section == 7 {
             return 9
         }
         else {
@@ -232,8 +232,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.infoData = self.searchResultData
             return cell
         case 7:
-            return UITableViewCell() //데이터 수집 노가다
-        case 8:
             switch indexPath.row {
             case 0:
                 let cell: DetailInfomationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailInfomationTableViewCell", for: indexPath) as! DetailInfomationTableViewCell
@@ -322,7 +320,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 8 {
+        if indexPath.section == 7 {
             if indexPath.row == 5 && !self.isMoreAgeGrade {
                 self.isMoreAgeGrade = true
                 tableView.reloadRows(at: [indexPath], with: .fade)

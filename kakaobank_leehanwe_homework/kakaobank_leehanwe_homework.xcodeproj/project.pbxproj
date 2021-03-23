@@ -36,8 +36,6 @@
 		7864791C2607396500C93A95 /* DetailPrivacyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7864791A2607396500C93A95 /* DetailPrivacyTableViewCell.xib */; };
 		786479212607397700C93A95 /* DetailInfomationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864791F2607397700C93A95 /* DetailInfomationTableViewCell.swift */; };
 		786479222607397700C93A95 /* DetailInfomationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479202607397700C93A95 /* DetailInfomationTableViewCell.xib */; };
-		786479272607398B00C93A95 /* DetailSupportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786479252607398B00C93A95 /* DetailSupportTableViewCell.swift */; };
-		786479282607398B00C93A95 /* DetailSupportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */; };
 		786479392607401900C93A95 /* DetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786479372607401900C93A95 /* DetailReviewTableViewCell.swift */; };
 		7864793A2607401900C93A95 /* DetailReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786479382607401900C93A95 /* DetailReviewTableViewCell.xib */; };
 		7864797A26076B0900C93A95 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864797926076B0800C93A95 /* IntExtension.swift */; };
@@ -131,8 +129,6 @@
 		7864791A2607396500C93A95 /* DetailPrivacyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPrivacyTableViewCell.xib; sourceTree = "<group>"; };
 		7864791F2607397700C93A95 /* DetailInfomationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfomationTableViewCell.swift; sourceTree = "<group>"; };
 		786479202607397700C93A95 /* DetailInfomationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfomationTableViewCell.xib; sourceTree = "<group>"; };
-		786479252607398B00C93A95 /* DetailSupportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSupportTableViewCell.swift; sourceTree = "<group>"; };
-		786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailSupportTableViewCell.xib; sourceTree = "<group>"; };
 		786479372607401900C93A95 /* DetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		786479382607401900C93A95 /* DetailReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewTableViewCell.xib; sourceTree = "<group>"; };
 		7864797926076B0800C93A95 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
@@ -270,8 +266,6 @@
 				786479B126078F8D00C93A95 /* DetailInfomation3TableViewCell.xib */,
 				786479B626078F9C00C93A95 /* DetailInfomation4TableViewCell.swift */,
 				786479B726078F9C00C93A95 /* DetailInfomation4TableViewCell.xib */,
-				786479252607398B00C93A95 /* DetailSupportTableViewCell.swift */,
-				786479262607398B00C93A95 /* DetailSupportTableViewCell.xib */,
 				78E16FD8260A0FF100E92E17 /* MoreAgeGradeTableViewCell.swift */,
 				78E16FD9260A0FF100E92E17 /* MoreAgeGradeTableViewCell.xib */,
 				78E16FDE260A100300E92E17 /* MoreCompatibilityTableViewCell.swift */,
@@ -578,7 +572,6 @@
 				78AA030D2606053E004960E1 /* SearchResultTableViewCell.xib in Resources */,
 				786479B926078F9C00C93A95 /* DetailInfomation4TableViewCell.xib in Resources */,
 				786479082607393200C93A95 /* DetailContentsTableViewCell.xib in Resources */,
-				786479282607398B00C93A95 /* DetailSupportTableViewCell.xib in Resources */,
 				7864793A2607401900C93A95 /* DetailReviewTableViewCell.xib in Resources */,
 				786478A62607324E00C93A95 /* DetailInfoCollectionTableViewCell.xib in Resources */,
 				78B58C672604AADA006A0B11 /* SearchHistoryTableViewCell.xib in Resources */,
@@ -731,7 +724,6 @@
 				78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */,
 				78AA032126062BF4004960E1 /* CommonUtil.swift in Sources */,
 				786479B826078F9C00C93A95 /* DetailInfomation4TableViewCell.swift in Sources */,
-				786479272607398B00C93A95 /* DetailSupportTableViewCell.swift in Sources */,
 				78647884260717FB00C93A95 /* MVPViewControllerProtocol.swift in Sources */,
 				78B58C712604AB44006A0B11 /* SearchBarTableHeaderView.swift in Sources */,
 				7864791B2607396500C93A95 /* DetailPrivacyTableViewCell.swift in Sources */,
