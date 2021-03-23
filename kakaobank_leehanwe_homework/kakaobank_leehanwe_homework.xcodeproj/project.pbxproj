@@ -81,6 +81,8 @@
 		78BC2FAD2604DD38002D33B7 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC2FAC2604DD38002D33B7 /* ApiManager.swift */; };
 		78BC2FE52604E678002D33B7 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC2FE42604E678002D33B7 /* SearchPresenter.swift */; };
 		78E16FCD2609EC4B00E92E17 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FCC2609EC4B00E92E17 /* UIViewExtension.swift */; };
+		78E16FD2260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E16FD0260A006900E92E17 /* DetaiPhonePreViewTableViewCell.xib */; };
+		78E16FD3260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E16FD1260A006900E92E17 /* DetaiPhonePreViewTableViewCell.swift */; };
 		841D3D3487E09D6E2CB263A1 /* Pods_kakaobank_leehanwe_homeworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65947E89289FE71B1F4784A /* Pods_kakaobank_leehanwe_homeworkTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +178,8 @@
 		78BC2FAC2604DD38002D33B7 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		78BC2FE42604E678002D33B7 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		78E16FCC2609EC4B00E92E17 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		78E16FD0260A006900E92E17 /* DetaiPhonePreViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetaiPhonePreViewTableViewCell.xib; sourceTree = "<group>"; };
+		78E16FD1260A006900E92E17 /* DetaiPhonePreViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetaiPhonePreViewTableViewCell.swift; sourceTree = "<group>"; };
 		9479F30A6ECD153AABFE95AA /* Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0F524D9C04C6565B8BC83A3 /* Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homeworkTests/Pods-kakaobank_leehanwe_homeworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C674223D675D0D29B7F3BCFB /* Pods-kakaobank_leehanwe_homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kakaobank_leehanwe_homework.debug.xcconfig"; path = "Target Support Files/Pods-kakaobank_leehanwe_homework/Pods-kakaobank_leehanwe_homework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				786478A42607324E00C93A95 /* DetailInfoCollectionTableViewCell.xib */,
 				786478DD2607333700C93A95 /* DetailInfoCollectionViewCell.swift */,
 				786478DE2607333700C93A95 /* DetailInfoCollectionViewCell.xib */,
+				78E16FD1260A006900E92E17 /* DetaiPhonePreViewTableViewCell.swift */,
+				78E16FD0260A006900E92E17 /* DetaiPhonePreViewTableViewCell.xib */,
 				786478FD2607390500C93A95 /* DetailPreViewTableViewCell.swift */,
 				786478FE2607390500C93A95 /* DetailPreViewTableViewCell.xib */,
 				786478F7260738B600C93A95 /* DetailPreViewCollectionViewCell.swift */,
@@ -555,6 +561,7 @@
 				78B58C752604AB50006A0B11 /* SearchBarTableHeaderView.xib in Resources */,
 				786479AD26078F7800C93A95 /* DetailInfomation2TableViewCell.xib in Resources */,
 				78B58C6D2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.xib in Resources */,
+				78E16FD2260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.xib in Resources */,
 				78B58D252604C0DA006A0B11 /* Localizable.strings in Resources */,
 				78AA030D2606053E004960E1 /* SearchResultTableViewCell.xib in Resources */,
 				786479B926078F9C00C93A95 /* DetailInfomation4TableViewCell.xib in Resources */,
@@ -686,6 +693,7 @@
 				7864787F2607162C00C93A95 /* DetailService.swift in Sources */,
 				78B58C0C26049A5B006A0B11 /* AppDelegate.swift in Sources */,
 				78B58D2C2604C20D006A0B11 /* StringExtension.swift in Sources */,
+				78E16FD3260A006A00E92E17 /* DetaiPhonePreViewTableViewCell.swift in Sources */,
 				786478AB2607326500C93A95 /* DetailReleaseNoteTableViewCell.swift in Sources */,
 				78E16FCD2609EC4B00E92E17 /* UIViewExtension.swift in Sources */,
 				7864784D2606DBEF00C93A95 /* SearchHistoryData.swift in Sources */,

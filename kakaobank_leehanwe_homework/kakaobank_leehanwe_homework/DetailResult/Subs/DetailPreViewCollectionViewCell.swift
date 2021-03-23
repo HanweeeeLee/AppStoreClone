@@ -26,10 +26,8 @@ class DetailPreViewCollectionViewCell: FSPagerViewCell {
         didSet {
             switch self.type {
             case .phone:
-                self.mainContainerView.layer.cornerRadius = 30
                 break
             case .pad:
-                self.mainContainerView.layer.cornerRadius = 10
                 break
             }
         }
@@ -52,9 +50,6 @@ class DetailPreViewCollectionViewCell: FSPagerViewCell {
     //MARK: function
     
     func initUI() {
-        self.mainContainerView.layer.cornerRadius = 30
-        self.mainContainerView.layer.masksToBounds = true
-        self.mainContainerView.clipsToBounds = true
     }
     
     //MARK: action

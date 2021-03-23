@@ -8,7 +8,11 @@
 import UIKit
 import FSPagerView
 
-class DetailPreViewTableViewCell: UITableViewCell {
+protocol DetaiPhonePreViewTableViewCellDelegate: DetailViewCommonProtocol{
+    func switchPreviewMode()
+}
+
+class DetaiPhonePreViewTableViewCell: UITableViewCell {
     
     
 
@@ -17,10 +21,8 @@ class DetailPreViewTableViewCell: UITableViewCell {
     @IBOutlet weak var iPhonePreviewPagerView: FSPagerView!
     @IBOutlet weak var iPhoneConainerView: UIView!
     @IBOutlet weak var iPhoneContentsLabel: UILabel!
-    @IBOutlet weak var iPadPreviewPagerView: FSPagerView!
-    @IBOutlet weak var iPadPreviewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var onlyIPadLabel: UILabel!
-    @IBOutlet weak var onlyiPadContainerView: UIView!
+    @IBOutlet weak var iPadContainerView: UIView!
+    @IBOutlet weak var iPadContentsLabel: UILabel!
     
     //MARK: property
     
@@ -28,7 +30,17 @@ class DetailPreViewTableViewCell: UITableViewCell {
     
     var originIPadPreviewHeightConstraint: CGFloat = 0
     
-    var infoData: SearchData? = nil
+    var infoData: SearchData? = nil {
+        didSet {
+            guard let info = self.infoData else { return }
+            if info.ipadScreenshotUrls.count > 0 {
+                self.iPadContainerView.isHidden = false
+                self.iPhoneConainerView.isHidden = true
+            }
+        }
+    }
+    
+    var delegate: DetaiPhonePreViewTableViewCellDelegate?
     
     //MARK: lifeCycle
     
@@ -48,21 +60,19 @@ class DetailPreViewTableViewCell: UITableViewCell {
         self.iPhonePreviewPagerView.interitemSpacing = 10
         self.iPhonePreviewPagerView.itemSize = self.iPhonePreviewPagerView.frame.size.applying(CGAffineTransform(scaleX: 0.7, y: 0.9));
         self.iPhoneContentsLabel.text = "iPhone"
-        self.iPadPreviewPagerView.delegate = self
-        self.iPadPreviewPagerView.dataSource = self
-        self.iPadPreviewPagerView.backgroundColor = .clear
-        self.iPadPreviewPagerView.register(UINib(nibName: "DetailPreViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailPreViewCollectionViewCell")
-        self.iPadPreviewPagerView.interitemSpacing = 10
-        self.iPadPreviewPagerView.itemSize = self.iPadPreviewPagerView.frame.size.applying(CGAffineTransform(scaleX: 0.7, y: 0.9));
-        self.originIPadPreviewHeightConstraint = self.iPadPreviewHeightConstraint.constant
-        self.onlyIPadLabel.text = "iPad"
+        self.iPadContentsLabel.text = "iPhone, iPad"
+        self.iPadContainerView.isHidden = true
     }
     
     //MARK: action
+    @IBAction func showIPadPreviewAction(_ sender: Any) {
+        self.delegate?.switchPreviewMode()
+        self.delegate?.reloadTableView()
+    }
     
 }
 
-extension DetailPreViewTableViewCell: FSPagerViewDelegate, FSPagerViewDataSource {
+extension DetaiPhonePreViewTableViewCell: FSPagerViewDelegate, FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         var returnValue: Int = 0
         if pagerView == self.iPhonePreviewPagerView {

@@ -16,6 +16,11 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     typealias MVPPresenterClassType = DetailPresenter
     typealias SelfType = DetailViewController
     
+    enum PreviewMode {
+        case iPhone
+        case iPad
+    }
+    
     //MARK: IBOutlet
     @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +30,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     var searchResultData: SearchData!
     
     var iconImg: UIImage? = nil
+    
+    var previewMode: PreviewMode = .iPhone
     
     //MARK: lifeCycle
     
@@ -74,6 +81,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.register(UINib(nibName: "DetailHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailHeaderTableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfoCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfoCollectionTableViewCell")
         self.tableView.register(UINib(nibName: "DetailPreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailPreViewTableViewCell")
+        self.tableView.register(UINib(nibName: "DetaiPhonePreViewTableViewCell", bundle: nil), forCellReuseIdentifier: "DetaiPhonePreViewTableViewCell")
         self.tableView.register(UINib(nibName: "DetailReleaseNoteTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailReleaseNoteTableViewCell")
         self.tableView.register(UINib(nibName: "DetailContentsTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailContentsTableViewCell")
         self.tableView.register(UINib(nibName: "DetailRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailRatingTableViewCell")
@@ -82,6 +90,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.tableView.register(UINib(nibName: "DetailInfomation2TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation2TableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfomation3TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation3TableViewCell")
         self.tableView.register(UINib(nibName: "DetailInfomation4TableViewCell", bundle: nil), forCellReuseIdentifier: "DetailInfomation4TableViewCell")
+        
+        
         
     }
     
@@ -190,11 +200,19 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         case 3:
-            let cell: DetailPreViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailPreViewTableViewCell", for: indexPath) as! DetailPreViewTableViewCell
-            cell.selectionStyle = .none
-            cell.delegate = self
-            cell.infoData = self.searchResultData
-            return cell
+            if previewMode == .iPad {
+                let cell: DetailPreViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailPreViewTableViewCell", for: indexPath) as! DetailPreViewTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = self.searchResultData
+                return cell
+            }
+            else {
+                let cell: DetaiPhonePreViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetaiPhonePreViewTableViewCell", for: indexPath) as! DetaiPhonePreViewTableViewCell
+                cell.selectionStyle = .none
+                cell.infoData = self.searchResultData
+                cell.delegate = self
+                return cell
+            }
         case 4:
             let cell: DetailRatingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailRatingTableViewCell", for: indexPath) as! DetailRatingTableViewCell
             cell.selectionStyle = .none
@@ -315,5 +333,8 @@ extension DetailViewController: DetailContentsTableViewCellDelegate {
 extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
 }
 
-extension DetailViewController: DetailPreViewTableViewCellDelegate {
+extension DetailViewController: DetaiPhonePreViewTableViewCellDelegate {
+    func switchPreviewMode() {
+        self.previewMode = .iPad
+    }
 }
