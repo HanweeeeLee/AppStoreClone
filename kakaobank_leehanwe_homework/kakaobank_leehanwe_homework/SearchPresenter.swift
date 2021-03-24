@@ -15,6 +15,10 @@ protocol SearchPresenterProtocol {
     func getAutoCompleteHistoryData(keyword: String) -> Array<SearchHistoryData>
 }
 
+protocol SearchPresenterDelegate: class {
+    func setIsLoading(isLoading: Bool)
+}
+
 class SearchPresenter: SearchPresenterProtocol {
     
     //MARK: IBOutlet
@@ -29,6 +33,8 @@ class SearchPresenter: SearchPresenterProtocol {
     
     var isQuerying: Bool = false
     
+    weak var delegate: SearchPresenterDelegate?
+    
     //MARK: lifeCycle
     
     init(service: SearchServiceProtocol) {
@@ -40,8 +46,10 @@ class SearchPresenter: SearchPresenterProtocol {
         self.currentSearchPage = 1
         appendHistory(searched: keyword)
         self.currentSearchKeyword = keyword
+        self.delegate?.setIsLoading(isLoading: true)
         self.service.getData(keyword: self.currentSearchKeyword, page: self.currentSearchPage, limit: self.limit, completeHandler: { response in
             self.currentSearchPage += 1
+            self.delegate?.setIsLoading(isLoading: false)
             completeHandler(response)
         }, failureHandler: { err in
             failureHandler(err)

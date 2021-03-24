@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
     
     //MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     //MARK: State
     var currentState: SearchBarState = .history {
@@ -42,6 +43,17 @@ class SearchViewController: UIViewController {
                     self.navigationController?.setNavigationBarHidden(true, animated: true)
                     break
                 }
+            }
+        }
+    }
+    
+    var isLoading: Bool = false {
+        didSet {
+            if self.isLoading {
+                showLoadingIndicator()
+            }
+            else {
+                hideLoadingIndicator()
             }
         }
     }
@@ -76,6 +88,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         self.searchHistoryArr = self.presenter.getSearchHistorys()
         initUI()
+        self.presenter.delegate = self
         self.tableView.reloadData()
     }
     
@@ -103,6 +116,7 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
+        self.loadingIndicator.isHidden = true
         showLargeTitle()
     }
     
@@ -149,6 +163,20 @@ class SearchViewController: UIViewController {
             imageView.heightAnchor.constraint(equalToConstant: 30),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
             ])
+    }
+    
+    func showLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.loadingIndicator.isHidden = false
+            self?.loadingIndicator.startAnimating()
+        }
+    }
+    
+    func hideLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.loadingIndicator.stopAnimating()
+            self?.loadingIndicator.isHidden = true
+        }
     }
     
     //MARK: action
@@ -388,5 +416,11 @@ extension SearchViewController: SearchHistoryTableViewCellDelegate {
 extension SearchViewController: DetailViewControllerDelegate {
     func viewPoped() {
         self.addUserIcon()
+    }
+}
+
+extension SearchViewController: SearchPresenterDelegate {
+    func setIsLoading(isLoading: Bool) {
+        self.isLoading = isLoading
     }
 }
