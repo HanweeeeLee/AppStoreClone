@@ -122,13 +122,11 @@ class SearchBarTableHeaderView: UITableViewHeaderFooterView {
 extension SearchBarTableHeaderView: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.delegate?.searchBarTextDidBeginEditing(self)
-        print("searchBarTextDidBeginEditing")
         showCancelBtn()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.delegate?.searchBarTextDidEndEditing(self)
-        print("searchBarTextDidEndEditing")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

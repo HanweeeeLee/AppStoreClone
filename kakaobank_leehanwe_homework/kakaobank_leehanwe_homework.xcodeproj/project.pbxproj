@@ -62,8 +62,6 @@
 		78B58C1526049A5C006A0B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1426049A5C006A0B11 /* Assets.xcassets */; };
 		78B58C1826049A5C006A0B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1626049A5C006A0B11 /* LaunchScreen.storyboard */; };
 		78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C2A2604A012006A0B11 /* SearchViewController.swift */; };
-		78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */; };
-		78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */; };
 		78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */; };
 		78B58C672604AADA006A0B11 /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C652604AADA006A0B11 /* SearchHistoryTableViewCell.xib */; };
 		78B58C6C2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C6A2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift */; };
@@ -158,8 +156,6 @@
 		78B58C2A2604A012006A0B11 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78B58C382604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakaobank_leehanwe_homeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78B58C3C2604A0F0006A0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleTableViewCell.swift; sourceTree = "<group>"; };
-		78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTitleTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		78B58C652604AADA006A0B11 /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		78B58C6A2604AAEA006A0B11 /* SearchAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
@@ -413,8 +409,6 @@
 		78B58C792604ABD8006A0B11 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */,
-				78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */,
 				78B58C702604AB44006A0B11 /* SearchBarTableHeaderView.swift */,
 				78B58C742604AB50006A0B11 /* SearchBarTableHeaderView.xib */,
 				78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */,
@@ -553,7 +547,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */,
 				786478AC2607326500C93A95 /* DetailReleaseNoteTableViewCell.xib in Resources */,
 				786479222607397700C93A95 /* DetailInfomationTableViewCell.xib in Resources */,
 				7864789E26072F1B00C93A95 /* DetailHeaderTableViewCell.xib in Resources */,
@@ -681,7 +674,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				786479392607401900C93A95 /* DetailReviewTableViewCell.swift in Sources */,
-				78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */,
 				78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */,
 				78AA030C2606053E004960E1 /* SearchResultTableViewCell.swift in Sources */,
 				78647989260770E000C93A95 /* DetailReviewFSPagerViewCell.swift in Sources */,

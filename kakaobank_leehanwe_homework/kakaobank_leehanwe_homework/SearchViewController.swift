@@ -25,7 +25,6 @@ class SearchViewController: UIViewController {
     var currentState: SearchBarState = .history {
         didSet {
             if oldValue != self.currentState {
-                print("newState!: \(self.currentState)")
                 switch self.currentState {
                 case .history:
                     self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -293,7 +292,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                         self.tableView.reloadData()
                     }
                 }, failureHandler: { err in
-                    print("페이징 실패:\(err.localizedDescription)")
                 })
             }
             break
