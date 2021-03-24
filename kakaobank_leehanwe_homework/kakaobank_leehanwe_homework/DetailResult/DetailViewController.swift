@@ -11,6 +11,7 @@ protocol DetailViewCommonProtocol: class {
     func reloadTableView(indexPath: IndexPath)
     func reloadTableView()
     func moveTo(indexPath: IndexPath)
+    func shareUrl(message: String, url: String)
 }
 
 protocol DetailViewControllerDelegate: class {
@@ -185,6 +186,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell: DetailHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderTableViewCell", for: indexPath) as! DetailHeaderTableViewCell
             cell.selectionStyle = .none
+            cell.delegate = self
             cell.infoData = self.searchResultData
             return cell
         case 1:
@@ -255,10 +257,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.contentsLabel.text = self.searchResultData.primaryGenreName
                 return cell
             case 3:
-                if isMoreCompatibility {//todo
+                if isMoreCompatibility {
                     let cell: MoreCompatibilityTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MoreCompatibilityTableViewCell", for: indexPath) as! MoreCompatibilityTableViewCell
                     cell.selectionStyle = .none
-                    cell.osLabel.text = self.searchResultData.minimumOsVersion + " 이상 필요."
+                    cell.osLabel.text = "iOS " + self.searchResultData.minimumOsVersion + " 이상 필요."
                     return cell
                 }
                 else {
@@ -332,6 +334,16 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 self.isMoreCompatibility = true
                 tableView.reloadRows(at: [indexPath], with: .fade)
             }
+            else if indexPath.row == 7 {
+                if let url = URL(string: self.searchResultData.sellerUrl ?? "") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }
+            else if indexPath.row == 8 {
+                if let url = URL(string: self.searchResultData.sellerUrl ?? "") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }
         }
     }
     
@@ -349,6 +361,17 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DetailViewController: DetailViewCommonProtocol {
+    func shareUrl(message: String, url: String) {
+        let title: String = message
+        guard let objectsToShare: URL = URL(string: url) else { return }
+        let sharedObjects: [AnyObject] = [objectsToShare as AnyObject, title as AnyObject]
+        let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop,  UIActivity.ActivityType.postToFacebook, UIActivity.ActivityType.postToTwitter, UIActivity.ActivityType.mail]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     func moveTo(indexPath: IndexPath) {
         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -378,5 +401,8 @@ extension DetailViewController: DetaiPhonePreViewTableViewCellDelegate {
 
 
 extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
+}
+extension DetailViewController: DetailHeaderTableViewCellDelegate {
+    
 }
 

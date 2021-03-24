@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol DetailHeaderTableViewCellDelegate: DetailViewCommonProtocol {
+}
+
 class DetailHeaderTableViewCell: UITableViewCell {
 
     //MARK: IBOutlet
@@ -26,6 +29,8 @@ class DetailHeaderTableViewCell: UITableViewCell {
             self.subTitleLabel.text = info.trackCensoredName
         }
     }
+    
+    weak var delegate: DetailHeaderTableViewCellDelegate?
     
     //MARK: lifeCycle
     
@@ -57,6 +62,8 @@ class DetailHeaderTableViewCell: UITableViewCell {
         print("앱 다운로드 버튼 눌림")
     }
     @IBAction func shareAction(_ sender: Any) {
-        print("앱 공유 버튼 눌림")
+        guard let info = self.infoData else { return }
+        guard let url = info.trackViewUrl else { return }
+        self.delegate?.shareUrl(message: info.trackName, url: url)
     }
 }
