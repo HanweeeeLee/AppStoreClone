@@ -297,9 +297,7 @@
 				78B58C332604A0D3006A0B11 /* Define */,
 				78B58C322604A0D3006A0B11 /* Manager */,
 				78B58C2F2604A0D3006A0B11 /* Protocol */,
-				78B58C312604A0D3006A0B11 /* SubViewControllers */,
 				78B58C2D2604A0D3006A0B11 /* Util */,
-				78B58C2E2604A0D3006A0B11 /* View */,
 				78B58C0B26049A5B006A0B11 /* AppDelegate.swift */,
 				78B58C0D26049A5B006A0B11 /* SceneDelegate.swift */,
 				78B58C1426049A5C006A0B11 /* Assets.xcassets */,
@@ -323,13 +321,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		78B58C2E2604A0D3006A0B11 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		78B58C2F2604A0D3006A0B11 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,13 +336,6 @@
 				7864784C2606DBEF00C93A95 /* SearchHistoryData.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		78B58C312604A0D3006A0B11 /* SubViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubViewControllers;
 			sourceTree = "<group>";
 		};
 		78B58C322604A0D3006A0B11 /* Manager */ = {
@@ -394,16 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				78B58C792604ABD8006A0B11 /* Cells */,
-				78B58C782604ABCD006A0B11 /* SubViews */,
 			);
 			path = SearchViewSubs;
-			sourceTree = "<group>";
-		};
-		78B58C782604ABCD006A0B11 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubViews;
 			sourceTree = "<group>";
 		};
 		78B58C792604ABD8006A0B11 /* Cells */ = {

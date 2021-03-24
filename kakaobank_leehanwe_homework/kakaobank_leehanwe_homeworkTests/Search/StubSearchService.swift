@@ -16,7 +16,8 @@ class StubSearchService: SearchServiceProtocol {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                print("작업해야해~!!!!! :\(jsonResult)")
+                // 미사용
+                // 사용하려면 이런식으로 mock데이터를 읽어서 직렬화로 변환해주고 completeHandler에 넣어주면 된다.
             } catch {
                 print("테스트 파일 읽기 오류")
             }
@@ -24,7 +25,7 @@ class StubSearchService: SearchServiceProtocol {
     }
     
     func appendSearchHistory(searchedText: String) {
-        //todo
+        //미사용
     }
     
     func getSearchHistorys() -> Array<SearchHistoryData> {
@@ -43,7 +44,7 @@ class StubSearchService: SearchServiceProtocol {
     }
     
     func deleteSearchHistroy(key: String, completeHandler: @escaping () -> (), failureHandler: @escaping (Error) -> ()) {
-        //todo
+        //미사용
     }
     
 
