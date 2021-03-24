@@ -39,6 +39,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     var previewMode: PreviewMode = .iPhone
     var isMoreCompatibility: Bool = false
     var isMoreAgeGrade: Bool = false
+    var isMoreContentsMode: Bool = false
     
     weak var delegate: DetailViewControllerDelegate?
     
@@ -197,6 +198,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.infoData = self.searchResultData
             cell.delegate = self
+            if isMoreContentsMode {
+                cell.mode = .detail
+            }
+            else {
+                cell.mode = .simple
+            }
             return cell
         case 3:
             if previewMode == .iPad {
@@ -356,10 +363,11 @@ extension DetailViewController: DetailViewCommonProtocol {
     }
 }
 
-
 extension DetailViewController: DetailContentsTableViewCellDelegate {
-}
-extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
+    func switchMoreContentsTableViewCellMode() {
+        self.isMoreContentsMode = true
+    }
+    
 }
 
 extension DetailViewController: DetaiPhonePreViewTableViewCellDelegate {
@@ -367,3 +375,8 @@ extension DetailViewController: DetaiPhonePreViewTableViewCellDelegate {
         self.previewMode = .iPad
     }
 }
+
+
+extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
+}
+

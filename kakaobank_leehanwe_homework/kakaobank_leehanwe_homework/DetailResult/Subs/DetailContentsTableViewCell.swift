@@ -9,6 +9,7 @@ import UIKit
 
 
 protocol DetailContentsTableViewCellDelegate: DetailViewCommonProtocol {
+    func switchMoreContentsTableViewCellMode()
 }
 
 class DetailContentsTableViewCell: UITableViewCell {
@@ -42,7 +43,6 @@ class DetailContentsTableViewCell: UITableViewCell {
             case .detail:
                 self.contentsLabel.numberOfLines = 100
                 self.moreBtn.isHidden = true
-                self.delegate?.reloadTableView()
                 
                 break
             }
@@ -69,8 +69,10 @@ class DetailContentsTableViewCell: UITableViewCell {
     //MARK: action
     
     @IBAction func moreAction(_ sender: Any) {
-        self.mode = .detail
+        self.delegate?.switchMoreContentsTableViewCellMode()
+        self.delegate?.reloadTableView(indexPath: IndexPath(row: 0, section: 2))
     }
+    
     @IBAction func devAction(_ sender: Any) {
         print("개발자버튼 눌림")
     }
