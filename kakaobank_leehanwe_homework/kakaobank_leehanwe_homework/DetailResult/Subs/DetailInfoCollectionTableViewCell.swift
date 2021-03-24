@@ -146,6 +146,7 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
             cell.topLabel.text = "연령"
             cell.centerLabel.text = info.contentAdvisoryRating
             cell.bottomLabel.text = "세"
+            cell.lineView.isHidden = false
             break
         case 2:
             cell.type = .image
@@ -154,6 +155,7 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
             }
             cell.topLabel.text = "개발자"
             cell.bottomLabel.text = info.sellerName
+            cell.lineView.isHidden = false
             break
         case 3:
             cell.type = .string
@@ -171,6 +173,7 @@ extension DetailInfoCollectionTableViewCell: UICollectionViewDelegate, UICollect
             else {
                 cell.bottomLabel.text = info.languageCodesISO2A[0]
             }
+            cell.lineView.isHidden = false
             break
         default:
             break

@@ -13,6 +13,10 @@ protocol DetailViewCommonProtocol: class {
     func moveTo(indexPath: IndexPath)
 }
 
+protocol DetailViewControllerDelegate: class {
+    func viewPoped()
+}
+
 class DetailViewController: UIViewController, MVPViewControllerProtocol {
     typealias MVPPresenterClassType = DetailPresenter
     typealias SelfType = DetailViewController
@@ -36,6 +40,8 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
     var isMoreCompatibility: Bool = false
     var isMoreAgeGrade: Bool = false
     
+    weak var delegate: DetailViewControllerDelegate?
+    
     //MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -54,6 +60,7 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         if self.isMovingFromParent {
             showLargeTitle()
             self.navigationController?.setNavigationBarHidden(true, animated: false)
+            self.delegate?.viewPoped()
         }
     }
     
@@ -104,17 +111,6 @@ class DetailViewController: UIViewController, MVPViewControllerProtocol {
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        let imageView = UIImageView(image: UIImage(systemName: "person.circle"))
-        self.navigationController?.navigationBar.addSubview(imageView)
-        imageView.layer.zPosition = -1000
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.rightAnchor.constraint(equalTo: self.navigationController!.navigationBar.rightAnchor, constant: -20),
-            imageView.bottomAnchor.constraint(equalTo: self.navigationController!.navigationBar.bottomAnchor, constant: -15),
-            imageView.heightAnchor.constraint(equalToConstant: 30),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
-            ])
     }
     
     func hideLargeTitle() {

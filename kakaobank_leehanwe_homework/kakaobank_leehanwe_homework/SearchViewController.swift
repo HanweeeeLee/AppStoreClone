@@ -28,19 +28,19 @@ class SearchViewController: UIViewController {
                 print("newState!: \(self.currentState)")
                 switch self.currentState {
                 case .history:
-                    self.navigationController?.setNavigationBarHidden(false, animated: false)
+                    self.navigationController?.setNavigationBarHidden(false, animated: true)
                     self.searchHistoryArr = self.presenter.getSearchHistorys()
                     self.tableView.reloadData()
                     break
                 case .nonInputHistory:
-                    self.navigationController?.setNavigationBarHidden(true, animated: false)
+                    self.navigationController?.setNavigationBarHidden(true, animated: true)
                     self.searchBarHeaderView?.getFirstResponder()
                     self.tableView.reloadData()
                     break
                 case .autoComplete:
                     break
                 case .searched:
-                    self.navigationController?.setNavigationBarHidden(true, animated: false)
+                    self.navigationController?.setNavigationBarHidden(true, animated: true)
                     break
                 }
             }
@@ -53,7 +53,6 @@ class SearchViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print("이게 많이 호출되면 안된다 !!!!!!")
             }
         }
     }
@@ -70,6 +69,8 @@ class SearchViewController: UIViewController {
     
     let callNextPageBeforeOffset: CGFloat = 150
     
+    var isSetUserIcon: Bool = false
+    
     //MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -77,6 +78,13 @@ class SearchViewController: UIViewController {
         self.searchHistoryArr = self.presenter.getSearchHistorys()
         initUI()
         self.tableView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if !isSetUserIcon {
+            self.isSetUserIcon = true
+            addUserIcon()
+        }
     }
     
     //MARK: function
@@ -122,20 +130,33 @@ class SearchViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+    }
+    
+    func addUserIcon() {
         let imageView = UIImageView(image: UIImage(systemName: "person.circle"))
-        self.navigationController?.navigationBar.addSubview(imageView)
-        imageView.layer.zPosition = -1000
+        imageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedUserIcon(_:)))
+        imageView.addGestureRecognizer(tapGesture)
+        guard let UINavigationBarLargeTitleView = NSClassFromString("_UINavigationBarLargeTitleView") else { return }
+        guard let largeTitleView = self.navigationController?.navigationBar.subviews.first(where: {
+            $0.isKind(of: UINavigationBarLargeTitleView.self)
+        }) else { return }
+        largeTitleView.removeAllSubview()
+        largeTitleView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.rightAnchor.constraint(equalTo: self.navigationController!.navigationBar.rightAnchor, constant: -20),
-            imageView.bottomAnchor.constraint(equalTo: self.navigationController!.navigationBar.bottomAnchor, constant: -15),
+            imageView.bottomAnchor.constraint(equalTo: self.navigationController!.navigationBar.bottomAnchor, constant: -13),
             imageView.heightAnchor.constraint(equalToConstant: 30),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
             ])
     }
     
     //MARK: action
+    
+    @objc func clickedUserIcon(_ recognizer: UITapGestureRecognizer) {
+        print("유저 아이콘 클릭")
+    }
     
 }
 
@@ -315,6 +336,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = DetailViewController.makeViewController(presenter: DetailPresenter(), infoData: self.searchResultData[indexPath.row]) {
                     self.currentState = .searched
                     self.navigationController?.pushViewController(vc, animated: true)
+                    vc.delegate = self
                 }
                 break
             }
@@ -361,5 +383,12 @@ extension SearchViewController: SearchHistoryTableViewCellDelegate {
         }, failureHandler: { err in
             print("delete history error:\(err.localizedDescription)")
         })
+    }
+}
+
+
+extension SearchViewController: DetailViewControllerDelegate {
+    func viewPoped() {
+        self.addUserIcon()
     }
 }

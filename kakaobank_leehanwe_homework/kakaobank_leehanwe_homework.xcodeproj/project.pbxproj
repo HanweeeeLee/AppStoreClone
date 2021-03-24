@@ -62,7 +62,6 @@
 		78B58C1526049A5C006A0B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1426049A5C006A0B11 /* Assets.xcassets */; };
 		78B58C1826049A5C006A0B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C1626049A5C006A0B11 /* LaunchScreen.storyboard */; };
 		78B58C2B2604A012006A0B11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C2A2604A012006A0B11 /* SearchViewController.swift */; };
-		78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */; };
 		78B58C602604AABC006A0B11 /* SearchTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */; };
 		78B58C612604AABC006A0B11 /* SearchTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */; };
 		78B58C662604AADA006A0B11 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B58C642604AADA006A0B11 /* SearchHistoryTableViewCell.swift */; };
@@ -158,7 +157,6 @@
 		78B58C1926049A5C006A0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78B58C2A2604A012006A0B11 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78B58C382604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakaobank_leehanwe_homeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kakaobank_leehanwe_homeworkTests.swift; sourceTree = "<group>"; };
 		78B58C3C2604A0F0006A0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78B58C5E2604AABC006A0B11 /* SearchTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleTableViewCell.swift; sourceTree = "<group>"; };
 		78B58C5F2604AABC006A0B11 /* SearchTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 		78B58C392604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				78B58C3A2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift */,
 				78B58C3C2604A0F0006A0B11 /* Info.plist */,
 				78AA0324260636D7004960E1 /* CommonUtilTests.swift */,
 				786478642607012F00C93A95 /* Search */,
@@ -735,7 +732,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78AA0325260636D7004960E1 /* CommonUtilTests.swift in Sources */,
-				78B58C3B2604A0F0006A0B11 /* kakaobank_leehanwe_homeworkTests.swift in Sources */,
 				7864786A2607012F00C93A95 /* SearchPresenterTests.swift in Sources */,
 				786478682607012F00C93A95 /* StubSearchService.swift in Sources */,
 			);
