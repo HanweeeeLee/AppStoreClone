@@ -22,15 +22,13 @@ class SearchPresenterTests: XCTestCase {
     func testGetAutoCompleteHistoryData() throws {
         let foo = self.presenter.getAutoCompleteHistoryData(keyword: "mov")
         XCTAssertEqual(foo.count, 2)
+        var existValueSet: Set<String> = ["movie", "fun movie"]
         for i in 0..<foo.count {
-            let searchedText = foo[i].searchText
-            if searchedText == "movie" || searchedText == "fun movie" {
-                XCTAssertTrue(true)
-            }
-            else {
-                XCTAssertTrue(false)
-            }
+            let searchedText: String = foo[i].searchText
+            XCTAssertTrue(existValueSet.contains(searchedText))
+            existValueSet.remove(searchedText)
         }
+        XCTAssertFalse(existValueSet.count > 0)
     }
     
 }
