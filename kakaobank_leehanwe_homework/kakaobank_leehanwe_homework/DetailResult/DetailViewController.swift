@@ -260,7 +260,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 if isMoreCompatibility {
                     let cell: MoreCompatibilityTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MoreCompatibilityTableViewCell", for: indexPath) as! MoreCompatibilityTableViewCell
                     cell.selectionStyle = .none
-                    cell.osLabel.text = "iOS " + self.searchResultData.minimumOsVersion + " 이상 필요."
+                    cell.minVersion = self.searchResultData.minimumOsVersion
+                    cell.supportedDevice = self.searchResultData.supportedDevices
+                    cell.refreshUI()
                     return cell
                 }
                 else {
@@ -403,6 +405,5 @@ extension DetailViewController: DetaiPhonePreViewTableViewCellDelegate {
 extension DetailViewController: DetailInfoCollectionTableViewCellDelegate {
 }
 extension DetailViewController: DetailHeaderTableViewCellDelegate {
-    
 }
 
