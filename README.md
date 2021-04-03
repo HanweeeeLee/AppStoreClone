@@ -1,2 +1,2 @@
-# AppStroe Clone
+# AppStore Clone
 AppStore Clone
